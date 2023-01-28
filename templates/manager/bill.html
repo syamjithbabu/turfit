@@ -1,0 +1,185 @@
+
+<!doctype html>
+<html>
+<head>
+  {% load static %}
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<title>Invoice</title>
+
+<style>
+.invoice-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    color: #555;
+}
+
+.invoice-box table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+}
+
+.invoice-box table td {
+    padding: 5px;
+    vertical-align: top;
+}
+
+.invoice-box table tr td:nth-child(2) {
+    text-align: right;
+}
+
+.invoice-box table tr.top table td {
+    padding-bottom: 20px;
+}
+
+.invoice-box table tr.top table td.title {
+    font-size: 45px;
+    line-height: 45px;
+    color: #333;
+}
+
+.invoice-box table tr.information table td {
+    padding-bottom: 40px;
+}
+
+.invoice-box table tr.heading td {
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}
+
+.invoice-box table tr.details td {
+    padding-bottom: 20px;
+}
+
+.invoice-box table tr.item td{
+    border-bottom: 1px solid #eee;
+}
+
+.invoice-box table tr.item.last td {
+    border-bottom: none;
+}
+
+.invoice-box table tr.total td:nth-child(2) {
+    border-top: 2px solid #eee;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    .invoice-box table tr.top table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+    
+    .invoice-box table tr.information table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+}
+
+/** RTL **/
+.rtl {
+    direction: rtl;
+    font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+}
+
+.rtl table {
+    text-align: right;
+}
+
+.rtl table tr td:nth-child(2) {
+    text-align: left;
+}
+</style>
+<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="invoice-box">
+    <header class="clearfix">
+      <div class="brand-icon  navbar-brand js-scroll-trigger" >
+        <i class="fas fa-futbol" style="width: 50px; height:50px;"></i>
+        <h1 class="navbar-brand js-scroll-trigger" href="#page-top" style="font-size: 25px;">Fun Turf.com</h1>
+      </div>
+        
+        <h1></h1>
+      
+        <center><h5>INVOICE </h5></center>
+        <div style="margin-top:10px ;">
+          <span>Date :</span>  {% now "d/m/o "  %}</div>
+        
+        <div id="project" >
+
+          <div style="margin-top:10px ;"><span>Customer Name :</span>{{customer_details.customer_name}} </div>
+          <div style="margin-top:10px ;"><span>Place :</span> {{customer_details.location}}</div>
+          <div style="margin-top:10px ;"><span>Mobile No :</span>{{customer_details.phone}}</div>
+          <div style="margin-top:10px ;"><span>Booking Date :</span>{{customer_details.booking_date}}</div>
+
+          <div style="margin-top:10px ;"><span>Time: </span><p><span>Check In  : </span>{{customer_details.check_in_time}} </span></p><p><span>Check Out :</span>{{customer_details.check_out_time}}</p></div>
+
+          
+        </div>
+      </header>
+    <table cellpadding="0" cellspacing="0" style="margin-top:10px ;">
+        
+        
+         <tr class="heading">
+            <td>
+                Slot
+            </td>
+            
+            <td>
+                Amount
+            </td>
+            
+            
+        </tr>
+        
+        <tr class="item">
+        
+            <td>
+              <div>
+               Slot {{customer_details.slot_number}}
+              </div>
+                <div>
+
+
+                   
+
+                </div>
+                
+            </td>
+           
+            
+            <td>
+               ₹{{customer_details.amount}}
+            </td>
+        
+        </tr>
+        
+
+    </table>
+
+    <a href="{% url 'booking_confirm' %}"><button class="btn btn-primary"  type="button"  style=" margin-left:50%; background-color:#ffc107; border-color:#ffc107;">
+        Back
+    </button></a>
+
+    
+</div>
+</body>
+</html>
+
+

@@ -1,0 +1,83 @@
+
+{% load static %}
+
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+        <div id="sidebar-menu" class="sidebar-menu">
+            <ul>
+                <li class="menu-title"><span>Main</span></li>
+                <li {% if is_home %} class="active"{% endif %}>
+                    <a href=""> <i class="material-icons">home</i><span>Dashboard</span></a>
+                </li>
+                <li {% if is_franchisees %} class="submenu active"{% endif %}>
+                    <a href="#"><i class="material-icons">groups</i><span>Manager</span> <span
+                            class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="">Add Manager</a></li>
+                        <li><a href="">View Manager</a></li>
+                       
+                    </ul>
+                </li>
+                <li {% if is_users %} class="submenu active"{% endif %}>
+                    <a href="#"><i class="material-icons">person</i><span> Users</span> <span
+                            class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="">Franchisees</a></li>
+                        <li><a href="">Marketing Admin</a></li>
+                        <li><a href="">Marketing Executive</a></li>
+                        <li><a href="">Mediators</a></li>
+                       
+                    </ul>
+                </li>
+
+                <li {% if is_sitereport %} class="active" {% endif %}>
+                    <a href=""><i class="material-icons">assignment</i> <span>Site Reports</span></a>
+                </li>
+                
+                <li {% if is_estimate %} class="active" {% endif %}>
+                    <a href=""><i class="material-icons">list_alt</i> <span>Estimate</span></a>
+                </li>
+                <li {% if is_invoice %} class="active" {% endif %}>
+                    <a href=""><i class="material-icons">receipt_long</i> <span>Invoice</span></a>
+                </li>
+                <li {% if is_addsite %} class="active" {% endif %}>
+                  
+                    <a href=""><i class="material-icons">add_home_work</i><span>Add Site</span></a>
+                </li>
+                <li {% if is_addsite %} class="active" {% endif %}>
+                    
+                    <a href="#"><i class="material-icons">summarize</i><span>Franchisor Report</span><span
+                        class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{">Individual Report</a></li>
+                        <li><a href="">Franchisor Report</a></li>
+                        <li><a href="">Completed Site  Report</a></li>
+                        <li><a href="">Total Site Report</a></li>
+                    </ul>
+                </li>
+
+                <li {% if is_expense %} class="submenu active"{% endif %}>
+                    <a href="#"><i class="fa fa-dollar-sign"></i><span> Income and Expense</span> <span
+                            class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="">Expense</a></li>
+                        <li><a href="">Income</a></li>
+                        <li><a href="">Profit and Loss</a></li>
+                       
+                    </ul>
+                </li>
+                <li {% if is_addproduct %} class="active" {% endif %}>
+                    <a href=""><i class="fa fa-cart-plus"></i><span>Products</span></a>
+                </li>
+               
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% block js %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+{% endblock %}

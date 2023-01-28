@@ -1,0 +1,68 @@
+
+<!doctype html>
+<html>
+<head>
+  {% load static %}
+  
+<meta charset="utf-8">
+
+<title>Invoice</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+<!-- Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="{% static "css/invoice.css"%}"" />
+  <style>
+    @page { size: a6 portrait; }
+  </style>  
+
+
+</head>
+
+<body>
+  
+<div class="invoice-box">
+    <header class="clearfix">
+      <div class="brand-icon  navbar-brand js-scroll-trigger" >
+        
+        <td class="title">
+          
+          
+          <h1 class="navbar-brand js-scroll-trigger" href="#page-top" style="font-size: 25px; margin-top:20px; margin-left:20px;"><img src="https://www.freepnglogos.com/uploads/football-png/drawing-football-photo-4.png" style="width:50px; margin-right:30px; margin-top:20px; ">Fun Turf </h1>
+      </td>
+        
+      </div>
+        
+        
+      
+        <center><h2>INVOICE </h2></center>
+        <div style="margin-top:10px ; margin-left:30px;">
+          <h4><span>Date :</span>  {% now "d/m/o "  %}</h4></div>
+        
+        <div id="project" >
+          
+          <div style="margin-top:10px ; margin-left:150px;"><h4 class="lead" style="font-size: 10px;"><span>Booking Date :</span>{{customer_details.booking_date}}</h4> </div>
+          <div style="margin-top:10px ; margin-left:150px;"><h4 class="lead" style="font-size: 10px;"><span>Name :</span>{{customer_details.customer_name}}</h4> </div>
+         
+          <div style="margin-top:10px ; margin-left:150px;"><h4 class="lead" style="font-size: 10px;"><span>Mobile No :</span>{{customer_details.phone}}</h4></div>
+          <div style="margin-top:10px ; margin-left:150px;"><h4 class="lead" style="font-size: 10px;"><span>Location :</span> {{customer_details.location}}</h4></div>
+          
+          <div style="margin-top:10px ; margin-left:150px;"><h4 class="lead" style="font-size: 10px;"><span>Booking Slot :</span>Slot {{customer_details.slot_number}}</h4></div>
+          <div style="margin-top:10px ; margin-left:150px;"><h4 class="lead" style="font-size: 10px;"><span>Check In Time :</span> {{customer_details.check_in_time}}</h4></div>
+          <div style="margin-top:10px ; margin-left:150px;"><h4 class="lead" style="font-size: 10px;"><span>Check Out Time :</span> {{customer_details.check_out_time}}</h4></div>
+          
+          
+          <div style="margin-top:10px ; margin-left:150px;"><h2 class="lead" style="font-size: 20px; "><span>Grand Total :</span> {{amount}}</h2></div>
+          
+          
+        </div>
+      </header>
+    
+    
+</div>
+</body>
+</html>
+
+

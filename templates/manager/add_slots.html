@@ -1,0 +1,346 @@
+<html lang="en">
+
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Fun Turf Home</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static "vendor/bootstrap/css/bootstrap.min.css"%}"" rel="stylesheet">
+  <link href="{% static "vendor/icofont/icofont.min.css"%}"" rel="stylesheet">
+  <link href="{% static "vendor/boxicons/css/boxicons.min.css"%}"" rel="stylesheet">
+  <link href="{% static "vendor/venobox/venobox.css"%}"" rel="stylesheet">
+  <link href="{% static "vendor/owl.carousel/assets/owl.carousel.min.css"%}"" rel="stylesheet">
+  <link href="{% static "vendor/aos/aos.css"%}"" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static "css/style.css"%}"" rel="stylesheet">
+
+  <style>
+    .page {
+      /* width: 100%; width of a div defaults to 100% like all block-elements */
+      margin: 0 auto;
+      padding: 0;
+      text-align: left;
+      height: 50px;
+    }
+  </style>
+
+  <!-- =======================================================
+  * Template Name: Remember - v3.0.0
+  * Template URL: https://bootstrapmade.com/remember-free-multipurpose-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+    
+      
+        
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark ">
+    <div class="container">
+      <a class="navbar-brand" style="margin-left:30%;" href="#">Fun Turf.com</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    </div>
+
+    <div class="collapse navbar-collapse nav-menu d-none d-lg-block" style="margin-left:30%;" id="navbarText">
+
+      <ul>
+
+        <li ><a href="{% url 'slot_add' %}">Home</a></li>
+          <li ><a href="{% url 'booking_confirm' %}"> Booking</a></li>
+
+          <li ><a href="{% url 'logout_page_manager' %}" onclick="return show_alert()" > Log out</a></li>
+
+
+
+
+
+      </ul>
+
+
+    </div>
+  </nav>
+
+
+
+
+  
+  <main id="main">
+
+    
+
+            <section id="contact" class="inner-page contact">
+              <div class="container">
+                
+
+                <div class="section-title" >
+                  <h2>  Add Slots </h2>
+                  
+                  
+                </div>
+        
+               
+        
+                <div class="row mt-5">
+        
+                  
+                  <div class="col-lg-8 mt-5 mt-lg-0"  style="margin-left:20%;">
+        
+                    <form action="" method="post" role="form" class="php-email-form"  >
+                      {% csrf_token %}
+                      <div class="row" style="margin-left: 20%;">
+                        
+                        <div class="col-md-4 form-group mt-3 mt-md-0">
+                          <label >Starting Time</label>
+                          <input type="time" class="form-control" name="start_time" id="start"  placeholder="time"  />
+
+                        </div>
+                        <div class="col-md-4 form-group mt-3 mt-md-0">
+                          <label >Ending Time</label>
+                          <input type="time" class="form-control" name="end_time"  id="end"  placeholder="time"  />
+
+                        </div>
+                          <div class="col-md-4 form-group mt-3 mt-md-0">
+                          <label >Amount</label>
+                          <select class="form-control" name="amount" id="slot_amt">
+                              <option value="">Select Amount</option>
+
+                              <option value="{{amount_details.morning_rate}}">₹{{amount_details.morning_rate}}</option>
+                              <option value="{{amount_details.evening_rate}}">₹{{amount_details.evening_rate}}</option>
+                              <option value="{{amount_details.night_rate}}">₹{{amount_details.night_rate}}</option>
+
+
+                          </select>
+
+                        </div>
+                        
+                        
+                      </div>
+                      
+                      
+                      
+                      <div class="text-center" style="margin-top:30px;"><button type="submit" onclick="return check_time()" name="add_slot_btn">Add Slot </button>
+                      </div>
+                    </form>
+
+                  </div>
+
+                  <div >
+                      {% if messages %}
+                    <ul class="alert alert-danger">
+                        {% for message in messages %}
+                               {{ message }}
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    
+                        
+                            
+                                
+                                    <div style=" font-size:25px;">
+                
+                                       
+                                        <table class="table table-bordered">
+                                          <thead>
+                                            <tr>
+                                                
+                                                <th>SlNo</th>
+                                                <th> Slot Number</th>
+                                                <th>Start Time</th>
+                                                <th>End Time</th>
+                                                <th>Amount</th>
+                                                
+                                                
+                                                
+                                                <th  colspan="2">Staus</th>
+                                                <th >Action</th>
+      
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                  
+                                          {% for x in slot_details %}
+                                           <tr>
+                                               
+                                               <td>{{forloop.counter|add:0}}</td>
+                                               <td>Slot{{x.slot_number}}</td>
+                                               <td>{{x.start_time}}</td>
+                                               <td>{{x.end_time}}</td>
+                                               <td>₹{{x.amount}}</td>
+                                               <form  method="POST">
+                                                {% csrf_token %}
+                                                <td><select name="update"    >
+                                                    <option value="Select"> Select </option>
+                                                    <option  value="Not Booked "> Not Booked </option>
+                                                    <option value="Booked"> Booked</option>
+                                                </select>
+
+                                                <button type="submit"  style="margin-left:30px;"   class="btn btn-success" name="update_btn"   value="{{x.id}}">Update </button>
+                                                </td>
+                                               </form>
+                                               <td>{{x.slot_status}}</td>
+                                               
+                                                
+                                               <form method="POST">
+                                                 {% csrf_token %}
+                                                
+                                                <td><button type="submit"  onclick="return show_warning()"  class="btn btn-danger" name="remove_btn"  value="{{x.id}}">Remove </button> </td>
+                                              </form>
+                                            
+                                           </tr>
+                                          {% endfor %}
+                                          
+                                          
+                                         
+                                           
+                                          
+                                       </tbody>
+                                        </table>
+      
+      
+                                    </div>
+                               
+                </div>
+        
+                </div>
+        
+        
+
+              </div>
+            </section>
+        
+          </main><!-- End #main -->
+    
+
+          
+
+          
+  
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+
+      <div class="container">
+
+        <div class="row  justify-content-center">
+          <div class="col-lg-6">
+            <h3>Fun Turf</h3>
+            
+          </div>
+        </div>
+
+        
+
+        <div class="social-links">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          
+          
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright" style="margin-left: 40%;">
+        &copy; Copyright <strong><span>Fun Turf</span></strong>. All Rights Reserved
+      </div>
+      
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="bx bxs-up-arrow-alt"></i></a>
+
+  
+
+   <script src="{% static "vendor/jquery/jquery.min.js"%}""></script>
+  <script src="{% static "vendor/bootstrap/js/bootstrap.bundle.min.js"%}""></script>
+  <script src="{%static "vendor/jquery.easing/jquery.easing.min.js"%}""></script>
+  
+  <script src="{% static "vendor/jquery-sticky/jquery.sticky.js"%}""></script>
+  <script src="{% static "vendor/venobox/venobox.min.js"%}""></script>
+  <script src="{% static "vendor/waypoints/jquery.waypoints.min.js"%}""></script>
+  <script src="{% static "vendor/counterup/counterup.min.js"%}""></script>
+  <script src="{% static "vendor/isotope-layout/isotope.pkgd.min.js"%}""></script>
+  <script src="{% static "vendor/owl.carousel/owl.carousel.min.js"%}""></script>
+  <script src="{% static "vendor/aos/aos.js"%}""></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static "js/main.js"%}""></script>
+
+
+
+  <script>
+      function check_time()
+      {
+       var get_start= $('#start').val();
+       var get_end= $('#end').val();
+       var get_amount=$('#slot_amt').val();
+
+       if (get_start == "")
+       {
+            alert("Please select a Slot Time");
+          return false;
+       }
+       if (get_end == "")
+       {
+            alert("Please select a Slot Time ");
+             return false;
+       }
+       if (get_amount == "")
+       {
+            alert("Please select a Slot Amount ");
+             return false;
+       }
+       this.form.submit();
+      }
+  </script>
+
+
+
+  <script>
+    function show_alert() {
+    if(!confirm("Do you want to log out?")) {
+        return false;
+        }
+        this.form.submit();
+    }
+</script>
+        
+<script>
+  function show_warning() {
+      if(!confirm("Do you really want to remove it?")) {
+        return false;
+      }
+      this.form.submit();
+    }
+</script>
+
+     
+  
+</body>
+</html>
