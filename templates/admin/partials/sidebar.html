@@ -7,67 +7,30 @@
             <ul>
                 <li class="menu-title"><span>Main</span></li>
                 <li {% if is_home %} class="active"{% endif %}>
-                    <a href=""> <i class="material-icons">home</i><span>Dashboard</span></a>
+                    <a href="{% url 'main_admin:home' %}"> <i class="material-icons">home</i><span>Dashboard</span></a>
                 </li>
                 <li {% if is_franchisees %} class="submenu active"{% endif %}>
                     <a href="#"><i class="material-icons">groups</i><span>Manager</span> <span
                             class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="">Add Manager</a></li>
-                        <li><a href="">View Manager</a></li>
+                        <li><a href="{% url 'main_admin:add_manager' %}">Add Manager</a></li>
+                        <li><a href="{% url 'main_admin:view_manager' %}">View Manager</a></li>
                        
                     </ul>
                 </li>
                 <li {% if is_users %} class="submenu active"{% endif %}>
-                    <a href="#"><i class="material-icons">person</i><span> Users</span> <span
+                    <a href="#"><i class="material-icons">person</i><span> Add Price List</span> <span
                             class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="">Franchisees</a></li>
-                        <li><a href="">Marketing Admin</a></li>
-                        <li><a href="">Marketing Executive</a></li>
-                        <li><a href="">Mediators</a></li>
-                       
+                        <li><a href="">Turf List</a></li>                      
                     </ul>
                 </li>
 
                 <li {% if is_sitereport %} class="active" {% endif %}>
-                    <a href=""><i class="material-icons">assignment</i> <span>Site Reports</span></a>
-                </li>
-                
-                <li {% if is_estimate %} class="active" {% endif %}>
-                    <a href=""><i class="material-icons">list_alt</i> <span>Estimate</span></a>
-                </li>
-                <li {% if is_invoice %} class="active" {% endif %}>
-                    <a href=""><i class="material-icons">receipt_long</i> <span>Invoice</span></a>
-                </li>
-                <li {% if is_addsite %} class="active" {% endif %}>
-                  
-                    <a href=""><i class="material-icons">add_home_work</i><span>Add Site</span></a>
-                </li>
-                <li {% if is_addsite %} class="active" {% endif %}>
-                    
-                    <a href="#"><i class="material-icons">summarize</i><span>Franchisor Report</span><span
-                        class="menu-arrow"></span></a>
-                    <ul>
-                        <li><a href="{">Individual Report</a></li>
-                        <li><a href="">Franchisor Report</a></li>
-                        <li><a href="">Completed Site  Report</a></li>
-                        <li><a href="">Total Site Report</a></li>
-                    </ul>
-                </li>
-
-                <li {% if is_expense %} class="submenu active"{% endif %}>
-                    <a href="#"><i class="fa fa-dollar-sign"></i><span> Income and Expense</span> <span
-                            class="menu-arrow"></span></a>
-                    <ul>
-                        <li><a href="">Expense</a></li>
-                        <li><a href="">Income</a></li>
-                        <li><a href="">Profit and Loss</a></li>
-                       
-                    </ul>
+                    <a href=""><i class="material-icons">assignment</i> <span>Manage Turf</span></a>
                 </li>
                 <li {% if is_addproduct %} class="active" {% endif %}>
-                    <a href=""><i class="fa fa-cart-plus"></i><span>Products</span></a>
+                    <a href=""><i class="fa fa-cart-plus"></i><span>View Bookings</span></a>
                 </li>
                
                 
