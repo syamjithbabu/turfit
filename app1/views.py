@@ -8,10 +8,10 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 def home(request):
-    return render(request,'admin/index.html')
+    return render(request,'app1/index.html')
 
 def sample(request):
-    return render(request,'admin/sample.html')
+    return render(request,'app1/sample.html')
 
 @csrf_exempt
 def add_manager(request):
@@ -31,10 +31,10 @@ def add_manager(request):
             User.objects.filter(id=user.id).update(email=user_email)
             messages.info(request, "Manager Registration Successfully")
             return redirect("main_admin:home")
-    return render(request,'admin/add_manager.html',{"login_form": login_form, "user_form": user_form})
+    return render(request,'app1/add_manager.html',{"login_form": login_form, "user_form": user_form})
 
 def view_manager(request):
-    return render(request,'admin/view_turf_manager.html')
+    return render(request,'app1/view_turf_manager.html')
 
 def add_turf(request):
     login_form = LoginForm()
@@ -53,7 +53,7 @@ def add_turf(request):
             User.objects.filter(id=user.id).update(email=user_email)
             messages.info(request, "Manager Registration Successfully")
             return redirect("main_admin:home")
-    return render(request,'admin/add_turf.html',{"login_form": login_form, "user_form": user_form})
+    return render(request,'app1/add_turf.html',{"login_form": login_form, "user_form": user_form})
 
 def view_turf(request):
-    return render(request,'admin/view_turf.html')
+    return render(request,'app1/view_turf.html')

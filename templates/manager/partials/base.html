@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>TURFit</title>
+
+    <link rel="shortcut icon" href="{% static 'img/FAV-DRF.png' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome/css/all.min.css' %}">
+    
+    {% block css_plugins %} {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block css %} {% endblock %}
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body class="nk-body bg-lighter npc-default has-sidebar no-touch nk-nio-theme">
+    
+    <div class="main-wrapper">
+   
+        {% include 'manager/partials/header.html' %}
+        {% include 'manager/partials/sidebar.html' %}
+
+        {% block content %}
+
+        {% endblock %}
+
+    </div>
+
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/feather.min.js' %}"></script>
+    <script src="{% static 'plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+    <script src="{% static 'plugins/apexchart/apexcharts.min.js' %}"></script>
+    <script src="{% static 'plugins/apexchart/chart-data.js' %}"></script>
+    {% block js-plugins %} {% endblock %}
+    
+    <script src="{% static 'js/script.js' %}"></script>
+
+    {% block js %} {% endblock %}
+
+</body>
+
+</html>
