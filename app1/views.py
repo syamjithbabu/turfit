@@ -54,3 +54,6 @@ def add_turf(request):
             messages.info(request, "Manager Registration Successfully")
             return redirect("main_admin:home")
     return render(request,'admin/add_turf.html',{"login_form": login_form, "user_form": user_form})
+
+def view_turf(request):
+    return render(request,'admin/view_turf.html')

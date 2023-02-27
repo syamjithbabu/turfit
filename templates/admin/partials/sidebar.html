@@ -23,12 +23,12 @@
                             class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="{% url 'main_admin:add_turf' %}">Add Turf</a></li> 
-                        <li><a href="">Turf List</a></li>                      
+                        <li><a href="{% url 'main_admin:view_turf' %}">Turf List</a></li>                      
                     </ul>
                 </li>
 
                 <li {% if is_sitereport %} class="active" {% endif %}>
-                    <a href=""><i class="material-icons">assignment</i> <span>Manage Turf</span></a>
+                    <a href="{% url 'main_admin:view_turf' %}"><i class="material-icons">assignment</i> <span>Manage Turf</span></a>
                 </li>
                
                 
