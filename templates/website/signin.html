@@ -27,37 +27,68 @@
 <div class="login-right-wrap">
 <h1>Sign Up</h1>
 <p class="account-subtitle">Access to our dashboard</p>
-<form action="https://kanakku.dreamguystech.com/html/template/index.html">
-<div class="form-group">
-<label class="form-control-label">Email Address</label>
-<input type="email" class="form-control">
-</div>
-<div class="form-group">
-  <label class="form-control-label">Username</label>
-  <input type="username" class="form-control">
-  </div>
-<div class="form-group">
-<label class="form-control-label">Password</label>
-<div class="pass-group">
-<input type="password" class="form-control pass-input">
-<span class="fas fa-eye toggle-password"></span>
-</div>
-</div>
-<div class="form-group">
-  <label class="form-control-label">Re-Type Password</label>
-  <div class="pass-group">
-  <input type="password" class="form-control pass-input">
-  <span class="fas fa-eye toggle-password"></span>
-  </div>
-  </div>
-<div class="form-group">
-<div class="row">
-<div class="col-6">
-</div>
-</div>
-</div>
-<button class="btn btn-lg btn-block btn-primary w-100" type="submit">Sign Up</button>
+<form action="#" method="POST">{% csrf_token %}
+  <div class="row">
+      <div class="col-md-6">
+          <div class="form-group">
 
+              <label>Name</label>
+              {{user_form.name}}
+              {{user_form.name.errors}}
+          </div>
+         
+          <div class="form-group">
+              <label>Phone</label>
+              <input type="text" class="form-control" name="phone" value="{{phone}}">
+              {{user_form.phone.errors}}
+
+          </div>
+      </div>
+      <div class="col-md-6">
+          <div class="form-group">
+              <label>Email</label>
+              {{user_form.email}}
+              {{user_form.email.errors}}
+          </div>
+          
+          
+      </div>
+  </div><br><br><br>
+
+  <h4 class="card-title">Login Info</h4>
+
+  <div class="row">
+      <div class="col-xl-12">
+          <div class="form-group row">
+              <label class="">Username</label>
+              <div class="">
+                  <input type="text" class="form-control" name="username" placeholder="Username" required value="{{username}}">
+
+                  {{login_form.username.errors}}
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="">Password</label>
+              <div class="">
+                  <input type="password" class="form-control" name="password1" placeholder="Password" required value="{{password1}}">
+
+                  {{login_form.password1.errors}}
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class=" ">Repeat Password</label>
+              <div class="">
+                  <input type="password" class="form-control" name="password2" placeholder="Confirm Password" required value="{{password2}}">
+                  
+                  {{login_form.password2.errors}}
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="text-end mt-4">
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+  </div>
 </form>
 </div>
 </div>

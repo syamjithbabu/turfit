@@ -1,6 +1,6 @@
 import re
 
-from .models import TurfManager
+from .models import TurfManager,TurfUser
 from .models import User
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
@@ -41,3 +41,19 @@ class UserRegistration(forms.ModelForm):
             ),
             "district": TextInput(attrs={"class": "form-control", "name": "district", "placeholder": "District", "required": "required", "autocomplete": "off"}),
         }
+
+
+class SignRegistration(forms.ModelForm):
+    phone = forms.CharField(
+        validators=[phone_number_validation],
+        widget=TextInput(attrs={"class": "form-control", "name": "phone", "placeholder": "phone", "required": "required", "autocomplete": "off"}),
+    )
+
+    class Meta:
+        model = TurfUser
+        fields = ("name", "email", "phone")
+        widgets = {
+            "name": TextInput(attrs={"class": "form-control", "name": "name", "placeholder": "Name", "required": "required", "autocomplete": "off"}),
+            "email": EmailInput(attrs={"class": "form-control", "name": "email", "placeholder": "Email", "required": "required", "autocomplete": "off"}),
+            "phone": TextInput(attrs={"class": "form-control", "name": "phone", "placeholder": "Phone", "required": "required", "autocomplete": "off"})
+                    }

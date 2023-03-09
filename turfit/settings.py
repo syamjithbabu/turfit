@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website',
     'app1',
-    'manager'
+    'manager',
+    'turfuser',
+    'versatileimagefield'
 ]
 
 MIDDLEWARE = [
