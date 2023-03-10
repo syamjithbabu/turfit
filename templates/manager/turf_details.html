@@ -1,0 +1,264 @@
+{% extends 'manager/partials/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+
+        <div class="page-header">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="page-title">Manager</h3>
+                    <ul class="breadcrumb">
+                        <li class=""><a href="">Dashboard /</a></li>
+                        <li class=""><a href="">Manager /</a></li>
+                        <li class="breadcrumb-item active">Details of Turf</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Turf Info</h4>
+                        
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+
+                                        <label>Turf Name</label>
+                                        <input value="{{turf.turf_name}}">
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label>Phone Number</label>
+                                        <input value="{{turf.phone}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Place</label>
+                                        <input value="{{turf.turf_place}}">
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    
+
+                                    <div class="form-group">Today<br/>
+      {% for slot in slot %}
+      <button type="submit" class="btn btn-block btn-outline-info">{{slot.start_time}} - {{slot.end_time}}</button>
+      {% endfor %}
+   
+                                    
+
+                                    
+                                    
+
+                                </div>
+                                
+
+                      
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $('#Savebuton').click(() => {
+        if (!$('#client_name').val()) {
+            $('#pname').html('Enter your name!')
+        }
+        else if (!$('#client_phone').val()) {
+            $('#pphone').html('Enter your Phone!')
+        }
+        else if (!$('#client_address').val()) {
+            $('#paddress').html('Enter your Address!')
+        }
+        else if (!$('#client_contact_type').val()) {
+            $('#pcontact').html('Chooes One!')
+        }
+        else if (!$('#state').val()) {
+            $('#pstate').html('Enter your State!')
+        }
+        else if (!$('#district').val()) {
+            $('#pdistrict').html('Enter your District')
+        }
+
+        else if (!$('#source_of_work').val()) {
+            $('#psource').html('Enter your Source of work')
+        }
+        else if (!$('#chance_of_confirm').val()) {
+            $('#pchance').html('Enter your Chance of Confirmation')
+        }
+        else if (!$('#start_date').val()) {
+            $('#pfrom').html('Enter your From Date')
+        }
+        else if (!$('#type_of_work').val()) {
+            $('#ptype').html('Enter your Work Type')
+        }
+        else if (!$('#measurement').val()) {
+            $('#parea').html('Enter your Area Meaurment')
+        }
+        else if (!$('#details_of_site').val()) {
+            $('#pdetail').html('Enter your Area details_of_site')
+        }
+
+        else {
+            $.ajax({
+                url: "/accounts_admin/savecustomer/",
+                type: 'post',
+                data: {
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                    'client_name': $('#client_name').val(),
+                    'client_phone': $('#client_phone').val(),
+                    'client_whsatpp': $('#client_whsatpp').val(),
+                    'client_email': $('#client_email').val(),
+                    'quotation_no': $('#quotation_no').val(),
+                    'client_address': $('#client_address').val(),
+                    'state': $('#state').val(),
+                    'district': $('#district').val(),
+                    'pincode': $('#pincode').val(),
+
+                    'source_of_work': $('#source_of_work').val(),
+                    'chance_of_confirm': $('#chance_of_confirm').val(),
+                    'start_date': $('#start_date').val(),
+                    'type_of_work': $('#type_of_work').val(),
+                    'measurement': $('#measurement').val(),
+                    'details_of_site': $('#details_of_site').val(),
+                },
+                success: function (responce) {
+                    window.location.href = '/accounts_admin/customer';
+                }
+
+
+            })
+        }
+
+
+    })
+
+
+
+    $('#Createbuton').click(() => {
+        if (!$('#client_name').val()) {
+            $('#pname').html('Enter your name!')
+        }
+        else if (!$('#client_phone').val()) {
+            $('#pphone').html('Enter your Phone!')
+        }
+        else if (!$('#client_address').val()) {
+            $('#paddress').html('Enter your Address!')
+        }
+        else if (!$('#client_contact_type').val()) {
+            $('#pcontact').html('Chooes One!')
+        }
+        else if (!$('#state').val()) {
+            $('#pstate').html('Enter your State!')
+        }
+        else if (!$('#district').val()) {
+            $('#pdistrict').html('Enter your District')
+        }
+
+        else if (!$('#source_of_work').val()) {
+            $('#psource').html('Enter your Source of work')
+        }
+        else if (!$('#chance_of_confirm').val()) {
+            $('#pchance').html('Enter your Chance of Confirmation')
+        }
+        else if (!$('#start_date').val()) {
+            $('#pfrom').html('Enter your From Date')
+        }
+        else if (!$('#type_of_work').val()) {
+            $('#ptype').html('Enter your Work Type')
+        }
+        else if (!$('#measurement').val()) {
+            $('#parea').html('Enter your Area Meaurment')
+        }
+        else if (!$('#details_of_site').val()) {
+            $('#pdetail').html('Enter your Area details_of_site')
+        }
+        else {
+
+            $.ajax({
+                url: "/accounts_admin/estimatedata/",
+                type: 'post',
+                data: {
+
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                    'client_name': $('#client_name').val(),
+                    'client_phone': $('#client_phone').val(),
+                    'client_whsatpp': $('#client_whsatpp').val(),
+                    'client_email': $('#client_email').val(),
+                    'quotation_no': $('#quotation_no').val(),
+                    'client_address': $('#client_address').val(),
+                    'state': $('#state').val(),
+                    'district': $('#district').val(),
+                    'pincode': $('#pincode').val(),
+
+                    'source_of_work': $('#source_of_work').val(),
+                    'chance_of_confirm': $('#chance_of_confirm').val(),
+                    'start_date': $('#start_date').val(),
+                    'type_of_work': $('#type_of_work').val(),
+                    'measurement': $('#measurement').val(),
+                    'details_of_site': $('#details_of_site').val(),
+                },
+                success: function (responce) {
+                    window.location.href = '/accounts_admin/addcustomer/?phone-no=' + responce.client.client_phone
+
+                    $("#checkname").val(responce.client.client_phone)
+                }
+
+
+
+            })
+
+        }
+
+    })
+
+    $('#client_phone').change(() => {
+
+        $.ajax({
+            url: "/accounts_admin/phoneexist/",
+            type: 'post',
+            data: {
+                'client_phone': $('#client_phone').val()
+            },
+            success: function (responce) {
+
+                if (responce.IsExist == true) {
+                    document.getElementById('pphone').innerHTML = 'User Phone Number Already Exist '
+
+                    $('#Savebuton').prop('disabled', true)
+                    $('#Createbuton').prop('disabled', true)
+                }
+                else {
+                    document.getElementById('pphone').innerHTML = ''
+                    $('#Savebuton').prop('disabled', false)
+                    $('#Createbuton').prop('disabled', false)
+                }
+            }
+
+        })
+    })
+
+
+
+</script>
+{% endblock %}

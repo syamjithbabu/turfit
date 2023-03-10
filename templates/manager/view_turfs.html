@@ -1,0 +1,156 @@
+{% extends 'manager/partials/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+
+        <div class="page-header">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="page-title">Turf List</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb"><a href=""> Turf List</a>
+                        </li>
+                        <li class="breadcrumb active"> / View Turfs</li>
+                    </ul>
+                </div>
+                <div class="col-auto">
+                    <a href="{% url 'main_admin:add_manager' %}" class="btn btn-primary me-1">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                    <!-- <a class="btn btn-primary filter-btn" href="javascript:void(0);" id="filter_search">
+                        <i class="fas fa-filter"></i>
+                    </a> -->
+                </div>
+            </div>
+        </div>
+
+
+        <div id="filter_inputs" class="card filter-card">
+            <div class="card-body pb-0">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label>Turf Name</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card card-table">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-center table-hover datatable">
+                                <thead class="thead-light">
+
+                                    <tr>
+                                        <th>Turf Name</th>
+                                        <th>Phone</th>
+                                        <th>Turf Place</th>
+                                      
+
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for turf in turfs %}
+                                    <tr>
+                                        <td>
+                                            <h2 class="">
+
+                                                <a href="">{{turf.turf_name}} </a>
+                                            </h2>
+                                        </td>
+                                        <td>{{turf.phone}}
+                                        </td>
+                                        <td>{{turf.turf_place}}</td>
+
+
+
+                                        <td class="text-right">
+                                            <div class="dropleft dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle"
+                                                    data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                        class="fas fa-ellipsis-h"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    
+                                                    <a class="dropdown-item"
+                                                        href="{% url 'manager:add_time_slots' turf.id %}"><i
+                                                            class="far fa-edit me-2"></i>Add Slots</a>
+                                                            <a class="dropdown-item"
+                                                        href="{% url 'manager:turf_details' turf.id %}"><i
+                                                            class="far fa-eye me-2"></i>View Turf</a>
+                                                    <a onclick="turfDelete('{{ turf.id }}')" class="dropdown-item "><i
+                                                            class="far fa-trash-alt me-2"></i>Delete</a>
+ 
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                      
+                                    </tr>
+
+
+
+
+                                </tbody>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block js %}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    function turfDelete(id) {
+        
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this turf!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Poof! This turf has been deleted!", {
+                        icon: "success",
+                    });
+                    setTimeout(function () {
+                        window.location.href = "/manager/turf-delete/" + id
+                    }, 1000);
+                } else {
+                    swal("It's is safe!");
+                }
+            });
+    }
+
+
+</script>
+{% endblock %}

@@ -387,579 +387,64 @@
 	<div class="holder">
 		<div class="container">
 		<div class="title-wrap text-center">
-			<h2 class="h1-style">TOP WORLD GAMES</h2>
+			<h2 class="h1-style">TOP TURFS NEAR BY YOU</h2>
 			<div class="carousel-arrows"></div>
 		</div>
 		<div class="prd-grid prd-carousel js-prd-carousel slick-arrows-aside-simple slick-arrows-mobile-lg data-to-show-4 data-to-show-md-3 data-to-show-sm-3 data-to-show-xs-2"
 			 data-slick='{"slidesToShow": 5, "slidesToScroll": 2, "responsive": [{"breakpoint": 992,"settings": {"slidesToShow": 3, "slidesToScroll": 1}},{"breakpoint": 768,"settings": {"slidesToShow": 2, "slidesToScroll": 1}},{"breakpoint": 480,"settings": {"slidesToShow": 2, "slidesToScroll": 1}}]}'>
-			<div class="prd prd--style2 prd-labels--max prd-labels-shadow ">
+		
+{% for turfs in turfs %}
+<div class="prd prd--style2 prd-labels--max prd-labels-shadow ">
 	<div class="prd-inside">
 		<div class="prd-img-area">
-			<a href="product.html" class="prd-img image-container">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-01-1.webp" alt="The Game" class="js-prd-img lazyload fade-up">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-01-2.webp" alt="The Game" class="js-prd-img lazyload fade-up">
+			<a href="{% url 'turfuser:turf_view' turfs.id %}" class="prd-img image-container">
+				<img src="{{turfs.turf_image.url}}" data-src="{{turfs.turf_image.url}}" alt="The Game" class="js-prd-img lazyload fade-up">
+				<img src="{{turfs.turf_image.url}}" data-src="{{turfs.turf_image.url}}" alt="The Game" class="js-prd-img lazyload fade-up">
 				<div class="foxic-loader"></div>
-				<div class="prd-big-circle-labels">
-					<div class="label-sale"><span>-10% <span class="sale-text">Sale</span></span>
-						<div class="countdown-circle">
-							<div class="countdown js-countdown" data-countdown="2021/07/01"></div>
-						</div>
-					</div>
-				</div>
+				
 			</a>
 			<div class="prd-circle-labels">
-				<a href="#" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a>
-				<a href="#" class="circle-label-qview js-prd-quickview prd-hide-mobile" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a>
+				<a href="{% url 'turfuser:turf_view' turfs.id %}" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a>
+				<a href="{% url 'turfuser:turf_view' turfs.id %}" class="circle-label-qview js-prd-quickview prd-hide-mobile" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a>
 			</div>
 		</div>
 		<div class="prd-info">
 			<div class="prd-info-wrap">
 				<div class="prd-info-top">
-					<div class="prd-tag"><a href="#">FOXic</a></div>
+					<div class="prd-tag"><a href="{% url 'turfuser:turf_view' turfs.id %}">{{turfs.turf_name}}</a></div>
 				</div>
-				<div class="prd-rating justify-content-center"><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i></div>
-				<div class="prd-tag"><a href="#">FOXic</a></div>
-				<h2 class="prd-title"><a href="product.html">The Game</a></h2>
+
+				<div class="prd-tag"><a href="{% url 'turfuser:turf_view' turfs.id %}">{{turfs.turf_place}}</a></div>
+				<h2 class="prd-title"><a href="{% url 'turfuser:turf_view' turfs.id %}">{{turfs.turf_name}}</a></h2>
 				<div class="prd-description">
 					Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante sed lacinia.
 				</div>
 			</div>
 			<div class="prd-hovers">
 				<div class="prd-circle-labels">
-					<div><a href="#" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a></div>
-					<div><a href="#" class="circle-label-qview prd-hide-mobile js-prd-quickview" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a></div>
+					<div><a href="{% url 'turfuser:turf_view' turfs.id %}" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a></div>
+					<div><a href="{% url 'turfuser:turf_view' turfs.id %}" class="circle-label-qview prd-hide-mobile js-prd-quickview" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a></div>
 				</div>
 				<div class="prd-price">
-					<div class="price-old">$ 200</div>
-					<div class="price-new">$ 180</div>
+					<div class="price-new">{{turfs.phone}}</div>
 				</div>
 				<div class="prd-action">
 					<div class="prd-action-left">
-						<form action="#">
-							<button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-01-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><div class="prd prd--style2 prd-labels--max prd-labels-shadow ">
-	<div class="prd-inside">
-		<div class="prd-img-area">
-			<a href="product.html" class="prd-img image-container">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-02-1.webp" alt="The Game" class="js-prd-img lazyload fade-up">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-02-2.webp" alt="The Game" class="js-prd-img lazyload fade-up">
-				<div class="foxic-loader"></div>
-				<div class="prd-big-circle-labels">
-					<div class="label-new"><span>New</span></div>
-				</div>
-			</a>
-			<div class="prd-circle-labels">
-				<a href="#" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a>
-				<a href="#" class="circle-label-qview js-prd-quickview prd-hide-mobile" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a>
-			</div>
-		</div>
-		<div class="prd-info">
-			<div class="prd-info-wrap">
-				<div class="prd-info-top">
-					<div class="prd-tag"><a href="#">FOXic</a></div>
-				</div>
-				<div class="prd-rating justify-content-center"><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i></div>
-				<div class="prd-tag"><a href="#">FOXic</a></div>
-				<h2 class="prd-title"><a href="product.html">The Game</a></h2>
-				<div class="prd-description">
-					Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante sed lacinia.
-				</div>
-			</div>
-			<div class="prd-hovers">
-				<div class="prd-circle-labels">
-					<div><a href="#" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a></div>
-					<div><a href="#" class="circle-label-qview prd-hide-mobile js-prd-quickview" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a></div>
-				</div>
-				<div class="prd-price">
-					<div class="price-new">$ 180</div>
-				</div>
-				<div class="prd-action">
-					<div class="prd-action-left">
-						<form action="#">
-							<button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-02-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><div class="prd prd--style2 prd-labels--max prd-labels-shadow ">
-	<div class="prd-inside">
-		<div class="prd-img-area">
-			<a href="product.html" class="prd-img image-container">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-03-1.webp" alt="The Game" class="js-prd-img lazyload fade-up">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-03-2.webp" alt="The Game" class="js-prd-img lazyload fade-up">
-				<div class="foxic-loader"></div>
-				<div class="prd-big-circle-labels">
-				</div>
-			</a>
-			<div class="prd-circle-labels">
-				<a href="#" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a>
-				<a href="#" class="circle-label-qview js-prd-quickview prd-hide-mobile" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a>
-			</div>
-		</div>
-		<div class="prd-info">
-			<div class="prd-info-wrap">
-				<div class="prd-info-top">
-					<div class="prd-tag"><a href="#">FOXic</a></div>
-				</div>
-				<div class="prd-rating justify-content-center"><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i></div>
-				<div class="prd-tag"><a href="#">FOXic</a></div>
-				<h2 class="prd-title"><a href="product.html">The Game</a></h2>
-				<div class="prd-description">
-					Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante sed lacinia.
-				</div>
-			</div>
-			<div class="prd-hovers">
-				<div class="prd-circle-labels">
-					<div><a href="#" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a></div>
-					<div><a href="#" class="circle-label-qview prd-hide-mobile js-prd-quickview" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a></div>
-				</div>
-				<div class="prd-price">
-					<div class="price-new">$ 180</div>
-				</div>
-				<div class="prd-action">
-					<div class="prd-action-left">
-						<form action="#">
-							<button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-03-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><div class="prd prd--style2 prd-labels--max prd-labels-shadow ">
-	<div class="prd-inside">
-		<div class="prd-img-area">
-			<a href="product.html" class="prd-img image-container">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-04-1.webp" alt="The Game" class="js-prd-img lazyload fade-up">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-04-2.webp" alt="The Game" class="js-prd-img lazyload fade-up">
-				<div class="foxic-loader"></div>
-				<div class="prd-big-circle-labels">
-					<div class="label-sale"><span>-50% <span class="sale-text">Sale</span></span>
-					</div>
-				</div>
-			</a>
-			<div class="prd-circle-labels">
-				<a href="#" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a>
-				<a href="#" class="circle-label-qview js-prd-quickview prd-hide-mobile" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a>
-			</div>
-		</div>
-		<div class="prd-info">
-			<div class="prd-info-wrap">
-				<div class="prd-info-top">
-					<div class="prd-tag"><a href="#">FOXic</a></div>
-				</div>
-				<div class="prd-rating justify-content-center"><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i></div>
-				<div class="prd-tag"><a href="#">FOXic</a></div>
-				<h2 class="prd-title"><a href="product.html">The Game</a></h2>
-				<div class="prd-description">
-					Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante sed lacinia.
-				</div>
-			</div>
-			<div class="prd-hovers">
-				<div class="prd-circle-labels">
-					<div><a href="#" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a></div>
-					<div><a href="#" class="circle-label-qview prd-hide-mobile js-prd-quickview" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a></div>
-				</div>
-				<div class="prd-price">
-					<div class="price-old">$ 149</div>
-					<div class="price-new">$ 299</div>
-				</div>
-				<div class="prd-action">
-					<div class="prd-action-left">
-						<form action="#">
-							<button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-04-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><div class="prd prd--style2 prd-labels--max prd-labels-shadow ">
-	<div class="prd-inside">
-		<div class="prd-img-area">
-			<a href="product.html" class="prd-img image-container">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-05-1.webp" alt="The Game" class="js-prd-img lazyload fade-up">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-05-2.webp" alt="The Game" class="js-prd-img lazyload fade-up">
-				<div class="foxic-loader"></div>
-				<div class="prd-big-circle-labels">
-				</div>
-			</a>
-			<div class="prd-circle-labels">
-				<a href="#" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a>
-				<a href="#" class="circle-label-qview js-prd-quickview prd-hide-mobile" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a>
-			</div>
-		</div>
-		<div class="prd-info">
-			<div class="prd-info-wrap">
-				<div class="prd-info-top">
-					<div class="prd-tag"><a href="#">FOXic</a></div>
-				</div>
-				<div class="prd-rating justify-content-center"><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i></div>
-				<div class="prd-tag"><a href="#">FOXic</a></div>
-				<h2 class="prd-title"><a href="product.html">The Game</a></h2>
-				<div class="prd-description">
-					Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante sed lacinia.
-				</div>
-			</div>
-			<div class="prd-hovers">
-				<div class="prd-circle-labels">
-					<div><a href="#" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a></div>
-					<div><a href="#" class="circle-label-qview prd-hide-mobile js-prd-quickview" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a></div>
-				</div>
-				<div class="prd-price">
-					<div class="price-new">$ 280</div>
-				</div>
-				<div class="prd-action">
-					<div class="prd-action-left">
-						<form action="#">
-							<button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-05-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><div class="prd prd--style2 prd-labels--max prd-labels-shadow ">
-	<div class="prd-inside">
-		<div class="prd-img-area">
-			<a href="product.html" class="prd-img image-container">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-06-1.webp" alt="The Game" class="js-prd-img lazyload fade-up">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/products/product-06-2.webp" alt="The Game" class="js-prd-img lazyload fade-up">
-				<div class="foxic-loader"></div>
-				<div class="prd-big-circle-labels">
-				</div>
-			</a>
-			<div class="prd-circle-labels">
-				<a href="#" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a>
-				<a href="#" class="circle-label-qview js-prd-quickview prd-hide-mobile" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a>
-			</div>
-		</div>
-		<div class="prd-info">
-			<div class="prd-info-wrap">
-				<div class="prd-info-top">
-					<div class="prd-tag"><a href="#">FOXic</a></div>
-				</div>
-				<div class="prd-rating justify-content-center"><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i></div>
-				<div class="prd-tag"><a href="#">FOXic</a></div>
-				<h2 class="prd-title"><a href="product.html">The Game</a></h2>
-				<div class="prd-description">
-					Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante sed lacinia.
-				</div>
-			</div>
-			<div class="prd-hovers">
-				<div class="prd-circle-labels">
-					<div><a href="#" class="circle-label-compare circle-label-wishlist--add js-add-wishlist mt-0" title="Add To Wishlist"><i class="icon-heart-stroke"></i></a><a href="#" class="circle-label-compare circle-label-wishlist--off js-remove-wishlist mt-0" title="Remove From Wishlist"><i class="icon-heart-hover"></i></a></div>
-					<div><a href="#" class="circle-label-qview prd-hide-mobile js-prd-quickview" data-src="ajax/ajax-quickview.html"><i class="icon-eye"></i><span>QUICK VIEW</span></a></div>
-				</div>
-				<div class="prd-price">
-					<div class="price-new">$ 149</div>
-				</div>
-				<div class="prd-action">
-					<div class="prd-action-left">
-						<form action="#">
-							<button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-06-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
-						</form>
+						
+							<button class="btn js-prd-addtocart"><a  href="{% url 'turfuser:turf_view' turfs.id %}">Book Now</a></button>
+						
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+{% endfor %}
+
 		</div>
 	</div>
 </div>
-	<div class="holder global_width">
-	<div class="container">
-		<div class="title-wrap text-center">
-			<h2 class="h1-style">GAMES OF THE YEAR</h2>
-		</div>
-		<div class="prd-grid prd-promo-carousel data-to-show-4 js-prd-promo-carousel">
-			<div class="prd-promo prd-promo--lg prd-has-loader">
-	<div class="prd-inside">
-		<div class="prd-img-area">
-			<a href="product.html" class="image-hover-scale">
-				<img src="images/skins/games/products/product-07-1.html" alt="The Game" class="js-prd-img">
-				<div class="prd-big-circle-labels">
-					<div class="label-sale"><span>-false <span class="sale-text">Sale</span></span>
-						<div class="countdown-circle">
-							<div class="countdown js-countdown" data-countdown="2021/07/01"></div>
-						</div>
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="prd-info text-center">
-			<h2 class="prd-title"><a href="product.html">The Game</a></h2>
-			<div class="prd-rating"><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><span></span></div>
-			<div class="prd-hover">
-				<div class="prd-price">
-					<div class="price-old">$ 200</div>
-					<div class="price-new">$ 180</div>
-				</div>
-				<div class="prd-action">
-					<button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-07-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><div class="prd-promo prd-promo--lg prd-has-loader">
-	<div class="prd-inside">
-		<div class="prd-img-area">
-			<a href="product.html" class="image-hover-scale">
-				<img src="images/skins/games/products/product-08-1.html" alt="The Game" class="js-prd-img">
-				<div class="prd-big-circle-labels">
-				</div>
-			</a>
-		</div>
-		<div class="prd-info text-center">
-			<h2 class="prd-title"><a href="product.html">The Game</a></h2>
-			<div class="prd-rating"><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><span></span></div>
-			<div class="prd-hover">
-				<div class="prd-price">
-					<div class="price-new">$ 180</div>
-				</div>
-				<div class="prd-action">
-					<button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-08-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><div class="prd-promo prd-promo--lg prd-has-loader">
-	<div class="prd-inside">
-		<div class="prd-img-area">
-			<a href="product.html" class="image-hover-scale">
-				<img src="images/skins/games/products/product-09-1.html" alt="The Game" class="js-prd-img">
-				<div class="prd-big-circle-labels">
-				</div>
-			</a>
-		</div>
-		<div class="prd-info text-center">
-			<h2 class="prd-title"><a href="product.html">The Game</a></h2>
-			<div class="prd-rating"><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><span></span></div>
-			<div class="prd-hover">
-				<div class="prd-price">
-					<div class="price-new">$ 180</div>
-				</div>
-				<div class="prd-action">
-					<button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-09-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><div class="prd-promo prd-promo--lg prd-has-loader">
-	<div class="prd-inside">
-		<div class="prd-img-area">
-			<a href="product.html" class="image-hover-scale">
-				<img src="images/skins/games/products/product-10-1.html" alt="The Game" class="js-prd-img">
-				<div class="prd-big-circle-labels">
-					<div class="label-sale"><span>-false <span class="sale-text">Sale</span></span>
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="prd-info text-center">
-			<h2 class="prd-title"><a href="product.html">The Game</a></h2>
-			<div class="prd-rating"><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><span></span></div>
-			<div class="prd-hover">
-				<div class="prd-price">
-					<div class="price-old">$ 149</div>
-					<div class="price-new">$ 299</div>
-				</div>
-				<div class="prd-action">
-					<button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-10-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><div class="prd-promo prd-promo--lg prd-has-loader">
-	<div class="prd-inside">
-		<div class="prd-img-area">
-			<a href="product.html" class="image-hover-scale">
-				<img src="images/skins/games/products/product-11-1.html" alt="The Game" class="js-prd-img">
-				<div class="prd-big-circle-labels">
-				</div>
-			</a>
-		</div>
-		<div class="prd-info text-center">
-			<h2 class="prd-title"><a href="product.html">The Game</a></h2>
-			<div class="prd-rating"><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><span></span></div>
-			<div class="prd-hover">
-				<div class="prd-price">
-					<div class="price-new">$ 280</div>
-				</div>
-				<div class="prd-action">
-					<button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-11-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div><div class="prd-promo prd-promo--lg prd-has-loader">
-	<div class="prd-inside">
-		<div class="prd-img-area">
-			<a href="product.html" class="image-hover-scale">
-				<img src="images/skins/games/products/product-12-1.html" alt="The Game" class="js-prd-img">
-				<div class="prd-big-circle-labels">
-				</div>
-			</a>
-		</div>
-		<div class="prd-info text-center">
-			<h2 class="prd-title"><a href="product.html">The Game</a></h2>
-			<div class="prd-rating"><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><i class="icon-star-fill fill"></i><span></span></div>
-			<div class="prd-hover">
-				<div class="prd-price">
-					<div class="price-new">$ 149</div>
-				</div>
-				<div class="prd-action">
-					<button class="btn js-prd-addtocart" data-product='{"name": "The Game", "path":"images/skins/games/products/product-12-1.webp", "url":"product.html", "aspect_ratio":0.778}'>Add To Cart</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-		</div>
-	</div>
-</div>
-	<div class="holder holder-mt-medium">
-	<div class="container">
-		<div class="title-with-arrows">
-			<h2 class="h1-style"><a href="blog.html" title="View all">HOTTEST GAMES NEWS</a></h2>
-			<div class="carousel-arrows"></div>
-		</div>
-		<div class="post-prws post-prws-carousel post-prws-carousel--single js-post-prws-carousel" data-slick='{"slidesToShow": 2, "responsive": [{"breakpoint": 1200,"settings": {"slidesToShow": 2}},{"breakpoint": 768,"settings": {"slidesToShow": 1}},{"breakpoint": 480,"settings": {"slidesToShow": 1}}]}'>
-			<div class="post-prw">
-	<div class="row vert-margin-middle">
-		<div class="post-prw-img col-sm-9">
-			<a href="blog-post.html" class="d-block image-container" style="padding-bottom: 88.92%">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/blog/game-blog-01.webp" class="lazyload fade-up" alt="Blog Title">
-			</a>
-		</div>
-		<div class="post-prw-text col-sm-9">
-			<h4 class="post-prw-title"><a href="#">This Weeks Snapshots</a></h4>
-			<div class="post-prw-links">
-			<div class="post-prw-date"><i class="icon-calendar1"></i><span>November 17, 2020</span></div>
-			</div>
-			<div class="post-prw-teaser">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna</div>
-			<div class="post-prw-btn">
-				<a href="#" class="btn btn--md">Read More</a>
-			</div>
-		</div>
-	</div>
-</div><div class="post-prw">
-	<div class="row vert-margin-middle">
-		<div class="post-prw-img col-sm-9">
-			<a href="blog-post.html" class="d-block image-container" style="padding-bottom: 88.92%">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/blog/game-blog-03.webp" class="lazyload fade-up" alt="Blog Title">
-			</a>
-		</div>
-		<div class="post-prw-text col-sm-9">
-			<h4 class="post-prw-title"><a href="#">New Online Missions</a></h4>
-			<div class="post-prw-links">
-			<div class="post-prw-date"><i class="icon-calendar1"></i><span>November 17, 2020</span></div>
-			</div>
-			<div class="post-prw-teaser">Nullam quis hendrerit nisi. Donec porta hendrerit sollicitudin. Vestibulum elit tortor, commodo in iaculis quis, imperdiet non eros</div>
-			<div class="post-prw-btn">
-				<a href="#" class="btn btn--md">Read More</a>
-			</div>
-		</div>
-	</div>
-</div><div class="post-prw">
-	<div class="row vert-margin-middle">
-		<div class="post-prw-img col-sm-9">
-			<a href="blog-post.html" class="d-block image-container" style="padding-bottom: 88.92%">
-				<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="images/skins/games/blog/game-blog-02.webp" class="lazyload fade-up" alt="Blog Title">
-			</a>
-		</div>
-		<div class="post-prw-text col-sm-9">
-			<h4 class="post-prw-title"><a href="#">Fusce erat arcu, rhoncus sit amet convallis eu, laoreet ut libero. Quisque dictum ante ac lectus iaculis, ac aliquet libero commodo</a></h4>
-			<div class="post-prw-links">
-			<div class="post-prw-date"><i class="icon-calendar1"></i><span>December 19, 2020</span></div>
-			</div>
-			<div class="post-prw-btn">
-				<a href="#" class="btn btn--md">Read More</a>
-			</div>
-		</div>
-	</div>
-</div>
-		</div>
-	</div>
-</div>
-	<div class="holder holder-subscribe-full mt-0" style="background-color: transparent;">
-	<div class="container">
-		<div class="row">
-			<div class="col-auto">
-				<div class="subscribe-form-title-lg">Get <span class="custom-color">20%</span> off</div>
-				<div class="subscribe-form-title-sm">Subscribe and receive!</div>
-			</div>
-			<div class="col">
-				<div class="subscribe-form">
-					<form action="#">
-						<div class="form-inline">
-							<div class="form-control-wrap">
-								<input type="text" class="form-control" placeholder="Type your e-mail...">
-								<svg preserveAspectRatio="none"><rect x="2" y="2" rx="6" height="100%" width="100%"></rect></svg>
-								<span class="bottom"></span>
-							</div>
-							<button type="submit" class="btn btn--lg">SUBSCRIBE</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-		<div class="holder mt-0">
-		<div class="container">
-			<div class="text-icn-blocks-row text-icn-blocks-row--nodivider justify-content-center">
-				<div class="text-icn-block-hor">
-					<div class="icn" style="color: #63555e">
-						<i class="icon-speech-bubble"></i>
-					</div>
-					<div class="text">
-						<h4>We HAVE A CHAT!</h4>
-						<p>+8 800 555 35 35<br>
-							+8 800 555 35 35</p>
-					</div>
-				</div>
-				<div class="text-icn-block-hor">
-					<div class="icn" style="color: #63555e">
-						<i class="icon-location"></i>
-					</div>
-					<div class="text">
-						<h4>OUR LOCATION</h4>
-						<p>181 Arple Rd E, St Albans<br>
-							Swites 3021, USA</p>
-					</div>
-				</div>
-				<div class="text-icn-block-hor">
-					<div class="icn" style="color: #63555e">
-						<i class="icon-watch"></i>
-					</div>
-					<div class="text">
-						<h4>TIME WORK</h4>
-						<p>5 Days a week<br>
-							from 08 AM to 8 PM</p>
-					</div>
-				</div>
-				<div class="text-icn-block-hor">
-					<div class="icn" style="color: #63555e">
-						<i class="icon-credit-card-1"></i>
-					</div>
-					<div class="text">
-						<h4>100%% SECURE</h4>
-						<p>Faster & More Secure Online Gaming Payments</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 </div>
 
 {% endblock %}

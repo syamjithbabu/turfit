@@ -1,0 +1,81 @@
+{% extends 'turfuser/partials/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="page-content container" style="padding-top: 100px;">
+	
+	<div class="holder">
+	<div class="container js-prd-gallery" id="prdGallery">
+		
+		<div class="row prd-block prd-block--prv-bottom">
+			<div class="col-md-8 col-lg-8 col-xl-8 aside--sticky js-sticky-collision">
+				<div class="aside-content">
+<div class="mb-2 js-prd-m-holder"></div>
+<div class="prd-block_main-image">
+	<div class="prd-block_main-image-holder" id="prdMainImage">
+		<div class="product-main-carousel js-product-main-carousel" data-zoom-position="inner">
+			<div data-value="Beige"><span class="prd-img"><img src="{{turf.turf_image.url}}" data-src="{{turf.turf_image.url}}" class="lazyload fade-up elzoom" alt="" data-zoom-image="images/skins/fashion/product-page/product-01.webp"/></span></div>
+			<div data-value="Beige"><span class="prd-img"><img src="{{turf.turf_image.url}}" data-src="{{turf.turf_image.url}}" class="lazyload fade-up elzoom" alt="" data-zoom-image="images/skins/fashion/product-page/product-02.webp"/></span></div>
+			<div class="inner-video js-inner-video">
+				<video preload="metadata" controls="controls" playsinline="playsinline">
+					<source src="images/skins/fashion/product-page/product-video.mp4" type="video/mp4">
+				</video>
+			</div>
+				</div>
+		
+	</div>
+
+</div>
+
+				</div>
+			</div>
+			<div class="col-md-10 col-lg-10 col-xl-10 mt-1 mt-md-0">
+				<div class="prd-block_info prd-block_info--style1" data-prd-handle="/products/copy-of-suede-leather-mini-skirt">
+	<div class="prd-block_info-top prd-block_info_item order-0 order-md-2">
+		<div class="prd-block_price prd-block_price--style2">
+			<div class="prd-block_price--actual">{{turf.turf_name}}</div>
+			
+		</div>
+		
+	</div>
+	<div class="prd-block_description prd-block_info_item ">
+		<h3>Location</h3>
+		<p>{{turf.turf_place}}</p>
+		<div class="mt-1"></div>
+	</div>
+	
+	
+	
+	<div class="order-0 order-md-100">
+		<form method="post" action="#">
+			<div class="prd-block_options">
+				
+				<div class="">
+					<div class="option-label">Slots:</div>
+				
+						{% for slot in slot %}
+      					<button type="submit" class="btn btn-block btn-outline-info">{{slot.start_time}} - {{slot.end_time}}</button>
+      					{% endfor %}
+					
+					
+				</div>
+			</div>
+			
+		</form>
+		
+	</div>
+	
+</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</div>
+
+
+{% endblock %}
