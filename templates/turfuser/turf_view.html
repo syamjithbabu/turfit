@@ -55,7 +55,7 @@
 				
 				<div class="">
 					<div class="option-label">Slots:</div>
-				
+						
 						{% for slot in slot %}
 						{% if slot.status == 0 %}
       					<button class="btn btn-block btn-outline-info"><a href="{% url 'turfuser:book' slot.id %}">{{slot.start_time}} - {{slot.end_time}}</a></button>

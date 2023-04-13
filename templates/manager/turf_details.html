@@ -47,10 +47,10 @@
                                     </div>
                                     
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     
 
-                                    <div class="form-group">Today<br/>
+                                    
       {% for slot in slot %}
      
       <button onclick="deleteslots('{{ slot.id }}')" class="btn btn-block btn-outline-info">{{slot.start_time}} - {{slot.end_time}}</button>
@@ -74,10 +74,18 @@
                                     
                                     
 
-                                </div>
+                           
                                 
 
                       
+                    </div>
+                    <div class="col-md-3">
+                        <!-- {% for date in dates %}
+
+                        <button class="btn btn-block btn-outline-info" onclick="">{{date.date}}</button>
+
+                        {% endfor %} -->
+                        
                     </div>
 
 

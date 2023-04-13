@@ -1,5 +1,6 @@
 from django.db import models
 from website.models import TurfManager,TurfUser
+from turfuser.models import BookDate
 from versatileimagefield.fields import VersatileImageField
 
 # Create your models here.
@@ -23,6 +24,7 @@ class TimeSlot(models.Model):
     status = models.IntegerField(default=0)
     turf_user = models.ForeignKey(TurfUser,on_delete=models.CASCADE,null=True)
     price = models.CharField(max_length=100)
+    date = models.ForeignKey(BookDate,on_delete=models.CASCADE,null=True)
 
     def __str__(self):
         return str(self.turf)

@@ -58,6 +58,16 @@
                                         <p id="pphone" style="color: red;"></p>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <select name="date">
+                                        {% for dates in dates %}
+                                        <option value="{{dates.id}}">{{dates.date}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                </div>
+                                
                                 <button type="submit" class="btn btn-primary mr-1 mb-1 ">save</button>
 
                         </form>

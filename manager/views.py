@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from manager.forms import TurfForm
 from website.models import TurfManager
 from manager.models import Turf,TimeSlot,Category
+from turfuser.models import BookDate
 
 # Create your views here.
 
@@ -9,6 +10,7 @@ def index(request):
     manager_obj = TurfManager.objects.get(user=request.user)
     bookings = TimeSlot.objects.filter(manager=manager_obj,status=1).all()
     print(manager_obj)
+    print(bookings)
     context = {
         'bookings' : bookings
     }
@@ -39,14 +41,22 @@ def view_turf(request):
 def add_time_slots(request,id):
     turf = Turf.objects.get(id=id)
     print(turf.turf_name)
+    manager_obj = TurfManager.objects.get(user=request.user)
+    dates = BookDate.objects.filter().all()
+    print(dates)
+    context = {
+        'dates' : dates
+    }
     if request.method == 'POST':
         start_time = request.POST.get('starttime')
         end_time = request.POST.get('endtime')
         price = request.POST.get('rate')
-        time_slot = TimeSlot.objects.create(turf=turf,start_time=start_time,end_time=end_time,price=price)
+        avail_date = request.POST.get('date')
+        print(avail_date)
+        time_slot = TimeSlot.objects.create(turf=turf,start_time=start_time,end_time=end_time,price=price,manager=manager_obj,date=avail_date)
         time_slot.save()
         return redirect('manager:view_turf')
-    return render(request,'manager/add_time_slot.html')
+    return render(request,'manager/add_time_slot.html',context)
 
 def delete_turf(request,id):
     turf = Turf.objects.get(id=id)
@@ -57,10 +67,11 @@ def turf_details(request,id):
     turf = Turf.objects.get(id=id)
     time_slots = TimeSlot.objects.filter(turf=turf)
     games = Category.objects.filter(turf=turf)
+    dates = BookDate.objects.filter().all()
     context = {
         'turf': turf,
         'slot' : time_slots,
-        'games' : games
+        'games' : games,
     }
     for i in time_slots:
         if i.is_booked == True:
@@ -75,7 +86,8 @@ def delete_slot(request,id):
     return redirect('manager:index')
 
 def bookings(request):
-    bookings = TimeSlot.objects.filter(status=1)
+    manager_obj = TurfManager.objects.get(user=request.user)
+    bookings = TimeSlot.objects.filter(manager=manager_obj,status=1)
     context = {
         'bookings' : bookings
     }
@@ -104,6 +116,8 @@ def add_games(request,id):
     turf = Turf.objects.get(id=id)
     if request.method == 'POST':
         game = request.POST.get('game')
+        date = request.POST.get('date')
+        BookDate.objects.create(date=date)
         game_category = Category.objects.create(turf=turf,game=game)
         return redirect('manager:view_turf')
     return render(request,'manager/add_games.html')
