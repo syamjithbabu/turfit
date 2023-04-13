@@ -7,17 +7,9 @@
             <ul>
                 <li class="menu-title"><span>Main</span></li>
                 <li {% if is_home %} class="active"{% endif %}>
-                    <a href="{% url 'main_admin:home' %}"> <i class="material-icons">home</i><span>Dashboard</span></a>
+                    <a href="{% url 'manager:index' %}"> <i class="material-icons">home</i><span>Dashboard</span></a>
                 </li>
-                <li {% if is_franchisees %} class="submenu active"{% endif %}>
-                    <a href="#"><i class="material-icons">groups</i><span>Manager</span> <span
-                            class="menu-arrow"></span></a>
-                    <ul>
-                        <li><a href="{% url 'main_admin:add_manager' %}">Add Manager</a></li>
-                        <li><a href="{% url 'main_admin:view_manager' %}">View Manager</a></li>
-                       
-                    </ul>
-                </li>
+                
                 <li {% if is_users %} class="submenu active"{% endif %}>
                     <a href="#"><i class="material-icons">person</i><span> Turf</span> <span
                             class="menu-arrow"></span></a>
@@ -28,7 +20,7 @@
                 </li>
 
                 <li {% if is_sitereport %} class="active" {% endif %}>
-                    <a href="{% url 'main_admin:view_turf' %}"><i class="material-icons">assignment</i> <span>Manage Turf</span></a>
+                    <a href="{% url 'manager:bookings' %}"><i class="material-icons">assignment</i> <span>Bookings</span></a>
                 </li>
                
                 

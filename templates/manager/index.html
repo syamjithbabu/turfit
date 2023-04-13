@@ -97,17 +97,17 @@
                                         </thead>
                                         <tbody>
         
-                                            {% for i in alllist %}
+                                            {% for book in bookings %}
                                             <tr>
-                                                <td  > <a href="#" class="invoice-link">{{ i.id }}</a> </td>
+                                                <td  > <a href="#" class="invoice-link">{{book.id}}</a> </td>
                                                 <td>
                                                     <h2 class="table-avatar">
-                                                        {{ i.clientd.client_name }}
+                                                        {{book.turf_user}}
                                                     </h2>
                                                 </td>
-                                                <td>{{ i.est_fromdate }}</td>
-                                                <td>{{ i.est_todate }}</td>
-                                                <td class="text-primary">₹{{ i.est_balance }}</td>
+                                                <td>{{book.turf}}</td>
+                                                <td>{{ book.start_time }}</td>
+                                                <td>{{ book.end_time }}</td>
                                                 <!-- <td>{% if i.est_status == 'Billed'  %} <span class="badge badge-pill bg-success-light">{{ i.est_status }}</span> {% elif i.est_status == 'Partialy Paid' %} <span class="badge bg-danger-light">{{ i.est_status }}</span> {% elif i.est_status == 'Advanced' %} <span class="badge bg-warning-light">{{ i.est_status }}</span> {% elif i.est_status == 'Closed' %} <span class="badge bg-primary-light">{{ i.est_status }}</span>  {% elif i.est_status == 'Pending' %} <span class="badge bg-info-light">{{ i.est_status }}</span>  {% endif %}  </td> -->
                                                 
                                             </tr>

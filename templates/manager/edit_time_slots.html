@@ -35,8 +35,9 @@
 
                                     <div class="form-group">
                                         <label>Start Time</label>
-                                        <input type="time" required class="form-control" id=""
-                                            name="starttime" value="{{phone}}">
+                                        <input type="time" required class="form-control"
+                                            name="starttime" value="{{rate.start_time}}">
+                                            {{rate.start_time}}
                                         <p id="pphone" style="color: red;"></p>
                                     </div>
                                     
@@ -46,7 +47,8 @@
                                     <div class="form-group">
                                         <label>End Time</label>
                                         <input type="time" required class="form-control" id=""
-                                            name="endtime" value="{{phone}}">
+                                            name="endtime" value="{{rate.end_time}}">
+                                            {{rate.end_time}}
                                         <p id="pphone" style="color: red;"></p>
                                     </div>
                                 </div>
@@ -54,7 +56,7 @@
                                     <div class="form-group">
                                         <label>Rate</label>
                                         <input type="text" required class="form-control" id=""
-                                            name="rate" value="{{phone}}">
+                                            name="rate" value="{{rate.price}}">
                                         <p id="pphone" style="color: red;"></p>
                                     </div>
                                 </div>

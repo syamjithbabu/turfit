@@ -52,7 +52,21 @@
 
                                     <div class="form-group">Today<br/>
       {% for slot in slot %}
-      <button type="submit" class="btn btn-block btn-outline-info">{{slot.start_time}} - {{slot.end_time}}</button>
+     
+      <button onclick="deleteslots('{{ slot.id }}')" class="btn btn-block btn-outline-info">{{slot.start_time}} - {{slot.end_time}}</button>
+      <a class="dropdown-item"
+                                                        href="{% url 'manager:edit_time_slots' slot.id %}"><i
+                                                            class="far fa-edit me-2"></i>Edit</a>
+      
+ 
+      {% endfor %}
+
+
+
+      {% for games in games %}
+
+    <button class="btn btn-block btn-outline-info" onclick="gamedelete('{{ games.id }}')">{{games.game}}</button>
+
       {% endfor %}
    
                                     
@@ -258,6 +272,63 @@
         })
     })
 
+
+
+</script>
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+    function deleteslots(id) {
+        
+        swal({
+            title: "Are you sure?",
+            text: "You want to delete this slot?",
+            icon: "warning",
+            buttons: true,
+            successMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Deleted successfully..!", {
+                        icon: "success",
+                    });
+                    setTimeout(function () {
+                        window.location.href = "/manager/slot-delete/" + id
+                    }, 1000);
+                } else {
+                    swal("Cancelled!");
+                }
+            });
+    }
+
+
+</script>
+
+<script>
+    function gamedelete(id) {
+        
+        swal({
+            title: "Are you sure?",
+            text: "You want to delete this Game?",
+            icon: "warning",
+            buttons: true,
+            successMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Deleted successfully..!", {
+                        icon: "success",
+                    });
+                    setTimeout(function () {
+                        window.location.href = "/manager/delete-game/" + id
+                    }, 1000);
+                } else {
+                    swal("Cancelled!");
+                }
+            });
+    }
 
 
 </script>

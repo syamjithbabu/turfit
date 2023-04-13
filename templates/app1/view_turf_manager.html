@@ -64,37 +64,30 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Phone</th>
+                                        <th>Email</th>
                                         <th>Place</th>
-                                      
 
                                         <th class="text-end">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for i in viewturfmanager %}
+                                    {% for managers in managers %}
                                     <tr>
                                         <td>
                                             <h2 class="">
 
-                                                <a href="">{{i.name}} </a>
+                                                <a href="">{{managers.name}} </a>
                                             </h2>
                                         </td>
-                                        <td>{{i.phone}}
+                                        <td>{{managers.phone}}
                                         </td>
                                         <td>
 
-                                            <h2 class="table-avatar">
-
-                                                <a href="">{{i.district}} <span>{{i.sector}} </span></a>
-                                            </h2>
+                                            {{managers.email}}
                                         </td>
-                                        <td>{{i.achievement_level}}</td>
+                                        <td>{{managers.turf_place}}</td>
 
-                                        <td class="text-end">
-                                            <!-- <a href=""
-                                                    class="btn btn-sm btn-white text-primary me-2"><i
-                                                        class="far fa-eye me-1"></i> View</a> -->
-
+                                       
 
 
                                         <td class="text-right">
@@ -104,17 +97,14 @@
                                                         class="fas fa-ellipsis-h"></i></a>
                                                 <div class="dropdown-menu dropdown-menu-right">
                                                     
-                                                    <a class="dropdown-item"
-                                                        href="{% url 'main_admin:editturfmanager' i.id %}"><i
-                                                            class="far fa-eye me-2"></i>Edit</a>
-                                                    <a onclick="franchiseDelete('{{ i.id }}')" class="dropdown-item "><i
+                                                    <a onclick="managerDelete('{{ managers.id }}')" class="dropdown-item "><i
                                                             class="far fa-trash-alt me-2"></i>Delete</a>
  
 
                                                 </div>
                                             </div>
                                         </td>
-                                        </td>
+                                        
                                     </tr>
 
 
@@ -137,7 +127,7 @@
 {% block js %}
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-    function franchiseDelete(id) {
+    function managerDelete(id) {
         
         swal({
             title: "Are you sure?",
@@ -152,7 +142,7 @@
                         icon: "success",
                     });
                     setTimeout(function () {
-                        window.location.href = "/accounts_admin/markmandelete/" + id
+                        window.location.href = "/app1/delete-manager/" + id
                     }, 1000);
                 } else {
                     swal("It's is safe!");

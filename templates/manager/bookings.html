@@ -9,11 +9,11 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="page-title">Turf List</h3>
+                    <h3 class="page-title">Bookings</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb"><a href=""> Turf List</a>
+                        <li class="breadcrumb"><a href=""> Booked</a>
                         </li>
-                        <li class="breadcrumb active"> / View Turfs</li>
+                        <li class="breadcrumb active"> / Details</li>
                     </ul>
                 </div>
                 <div class="col-auto">
@@ -64,24 +64,28 @@
                                     <tr>
                                         <th>Turf Name</th>
                                         <th>Phone</th>
-                                        <th>Turf Place</th>
+                                        <th>Email</th>
+                                        <th>Slot</th>
+                                        <th>Rate</th>
                                       
 
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for turf in turfs %}
+                                    {% for bookings in bookings %}
                                     <tr>
                                         <td>
                                             <h2 class="">
 
-                                                <a href="">{{turf.turf_name}} </a>
+                                                <a href="">{{bookings.turf_user}} </a>
                                             </h2>
                                         </td>
-                                        <td>{{turf.phone}}
+                                        <td>{{bookings.turf_user.phone}}
                                         </td>
-                                        <td>{{turf.turf_place}}</td>
+                                        <td>{{bookings.turf_user.email}}</td>
+                                        <td>{{bookings.start_time}} - {{bookings.end_time}}</td>
+                                        <td>{{bookings.price}}</td>
 
 
 
@@ -92,16 +96,8 @@
                                                         class="fas fa-ellipsis-h"></i></a>
                                                 <div class="dropdown-menu dropdown-menu-right">
                                                     
-                                                    <a class="dropdown-item"
-                                                        href="{% url 'manager:add_time_slots' turf.id %}"><i
-                                                            class="far fa-edit me-2"></i>Add Slots</a>
-                                                    <a class="dropdown-item"
-                                                            href="{% url 'manager:add_games' turf.id %}"><i
-                                                                class="far fa-edit me-2"></i>Add Games</a>
-                                                            <a class="dropdown-item"
-                                                        href="{% url 'manager:turf_details' turf.id %}"><i
-                                                            class="far fa-eye me-2"></i>View Turf</a>
-                                                    <a onclick="turfDelete('{{ turf.id }}')" class="dropdown-item "><i
+                                                    
+                                                    <a href="{% url 'manager:reject_booking' bookings.id %}" class="dropdown-item "><i
                                                             class="far fa-trash-alt me-2"></i>Delete</a>
  
 

@@ -50,21 +50,25 @@
 	
 	
 	<div class="order-0 order-md-100">
-		<form method="post" action="#">
+		
 			<div class="prd-block_options">
 				
 				<div class="">
 					<div class="option-label">Slots:</div>
 				
 						{% for slot in slot %}
-      					<button type="submit" class="btn btn-block btn-outline-info">{{slot.start_time}} - {{slot.end_time}}</button>
+						{% if slot.status == 0 %}
+      					<button class="btn btn-block btn-outline-info"><a href="{% url 'turfuser:book' slot.id %}">{{slot.start_time}} - {{slot.end_time}}</a></button>
+						{% else %}
+						<button class="btn btn-block btn-outline-info" style="background-color: red; !important">{{slot.start_time}} - {{slot.end_time}}</button>
+						{% endif %}
       					{% endfor %}
 					
 					
 				</div>
 			</div>
 			
-		</form>
+		
 		
 	</div>
 	
@@ -76,6 +80,7 @@
 
 
 </div>
+
 
 
 {% endblock %}

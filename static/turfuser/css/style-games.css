@@ -5919,6 +5919,7 @@ body:not(.has-btn-not-upper) .btn
     border: 0 !important;
     border-radius: 4px;
 }
+
 .btn,
 .btn:active,
 .btn:active:focus,
@@ -5929,7 +5930,7 @@ body:not(.has-btn-not-upper) .btn
 
     color: #fff;
     outline: none;
-    background-color: #f52424;
+    background-color: #00ff2a;
     box-shadow: none !important;
 }
 .btn:hover,

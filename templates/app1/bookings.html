@@ -1,4 +1,4 @@
-{% extends 'manager/partials/base.html' %}
+{% extends 'app1/partials/base.html' %}
 {% load static %}
 
 {% block content %}
@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="col-sm-6 col-md-3">
                         <div class="form-group">
-                            <label>Turf Name</label>
+                            <label>Name</label>
                             <input type="text" class="form-control">
                         </div>
                     </div>
@@ -63,52 +63,29 @@
 
                                     <tr>
                                         <th>Turf Name</th>
-                                        <th>Phone</th>
-                                        <th>Turf Place</th>
+                                        <th>User Name</th>
+                                        <th>User Email</th>
                                       
 
-                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for turf in turfs %}
+                                    {% for bookings in bookings %}
                                     <tr>
                                         <td>
                                             <h2 class="">
 
-                                                <a href="">{{turf.turf_name}} </a>
+                                                <a href="">{{bookings.turf}} </a>
                                             </h2>
                                         </td>
-                                        <td>{{turf.phone}}
+                                        <td>{{bookings.turf_user}}
                                         </td>
-                                        <td>{{turf.turf_place}}</td>
+                                        <td>
 
-
-
-                                        <td class="text-right">
-                                            <div class="dropleft dropdown-action">
-                                                <a href="#" class="action-icon dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false"><i
-                                                        class="fas fa-ellipsis-h"></i></a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    
-                                                    <a class="dropdown-item"
-                                                        href="{% url 'manager:add_time_slots' turf.id %}"><i
-                                                            class="far fa-edit me-2"></i>Add Slots</a>
-                                                    <a class="dropdown-item"
-                                                            href="{% url 'manager:add_games' turf.id %}"><i
-                                                                class="far fa-edit me-2"></i>Add Games</a>
-                                                            <a class="dropdown-item"
-                                                        href="{% url 'manager:turf_details' turf.id %}"><i
-                                                            class="far fa-eye me-2"></i>View Turf</a>
-                                                    <a onclick="turfDelete('{{ turf.id }}')" class="dropdown-item "><i
-                                                            class="far fa-trash-alt me-2"></i>Delete</a>
- 
-
-                                                </div>
-                                            </div>
+                                            {{bookings.turf_user.email}}
                                         </td>
-                                      
+                                        
+
                                     </tr>
 
 
@@ -131,22 +108,22 @@
 {% block js %}
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-    function turfDelete(id) {
+    function franchiseDelete(id) {
         
         swal({
             title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this turf!",
+            text: "Once deleted, you will not be able to recover this user!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Poof! This turf has been deleted!", {
+                    swal("Poof! This user has been deleted!", {
                         icon: "success",
                     });
                     setTimeout(function () {
-                        window.location.href = "/manager/turf-delete/" + id
+                        window.location.href = "/accounts_admin/markmandelete/" + id
                     }, 1000);
                 } else {
                     swal("It's is safe!");
