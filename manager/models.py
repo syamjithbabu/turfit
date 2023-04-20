@@ -24,7 +24,7 @@ class TimeSlot(models.Model):
     status = models.IntegerField(default=0)
     turf_user = models.ForeignKey(TurfUser,on_delete=models.CASCADE,null=True)
     price = models.CharField(max_length=100)
-    date = models.ForeignKey(BookDate,on_delete=models.CASCADE,null=True)
+    date_for_book = models.DateField()
 
     def __str__(self):
         return str(self.turf)

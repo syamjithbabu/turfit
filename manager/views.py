@@ -42,21 +42,16 @@ def add_time_slots(request,id):
     turf = Turf.objects.get(id=id)
     print(turf.turf_name)
     manager_obj = TurfManager.objects.get(user=request.user)
-    dates = BookDate.objects.filter().all()
-    print(dates)
-    context = {
-        'dates' : dates
-    }
     if request.method == 'POST':
         start_time = request.POST.get('starttime')
         end_time = request.POST.get('endtime')
         price = request.POST.get('rate')
         avail_date = request.POST.get('date')
         print(avail_date)
-        time_slot = TimeSlot.objects.create(turf=turf,start_time=start_time,end_time=end_time,price=price,manager=manager_obj,date=avail_date)
+        time_slot = TimeSlot.objects.create(turf=turf,start_time=start_time,end_time=end_time,price=price,manager=manager_obj,date_for_book=avail_date)
         time_slot.save()
         return redirect('manager:view_turf')
-    return render(request,'manager/add_time_slot.html',context)
+    return render(request,'manager/add_time_slot.html')
 
 def delete_turf(request,id):
     turf = Turf.objects.get(id=id)

@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import login,logout
-from manager.models import Turf,TimeSlot
+from manager.models import Turf,TimeSlot,Category
 from website.models import TurfUser
 
 # Create your views here.
@@ -19,9 +19,11 @@ def logout_view(request):
 def turf_view(request,id):
     turf = Turf.objects.get(id=id)
     slots = TimeSlot.objects.filter(turf=turf)
+    games = Category.objects.filter(turf=turf).all()
     context = {
         'turf' : turf,
-        'slot' : slots
+        'slot' : slots,
+        'games' : games
     }
     return render(request,'turfuser/turf_view.html',context)
 

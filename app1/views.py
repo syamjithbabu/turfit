@@ -9,7 +9,11 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 def home(request):
-    return render(request,'app1/index.html')
+    bookings = TimeSlot.objects.filter(status=1).all()
+    context = {
+        'bookings' : bookings
+    }
+    return render(request,'app1/index.html',context)
 
 def sample(request):
     return render(request,'app1/sample.html')
