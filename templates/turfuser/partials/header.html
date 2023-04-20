@@ -1,139 +1,144 @@
 {% load static %}
 
 
-<body class="has-squared-btns has-loader-bg equal-height has-btn-not-upper">
-    <header class="hdr-wrap hdr-transparent">
-        <div class="hdr-content hdr-content-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-auto show-mobile">
-    <div class="menu-toggle"> <a href="#" class="mobilemenu-toggle"><i class="icon-menu"></i></a> </div>
-                </div>
-                <div class="col-auto hdr-logo">
-                    <a href="index.html" class="logo"><img srcset="images/skins/games/logo-games.webp 1x, images/skins/games/logo-games2x.webp 2x" alt="Logo"></a>
-                </div>
-                <div class="hdr-nav hide-mobile nav-holder-s">
-                </div>
-                <div class="hdr-links-wrap col-auto ml-auto">
-                    <div class="hdr-inline-link">
-    <div class="search_container_desktop">
-        <div class="dropdn dropdn_search dropdn_fullwidth">
-            <a href="#" class="dropdn-link  js-dropdn-link only-icon"><i class="icon-search"></i><span class="dropdn-link-txt">Search</span></a>
-            <div class="dropdn-content">
-                <div class="container">
-                    <form method="get" action="#" class="search search-off-popular">
-                        <input name="search" type="text" class="search-input input-empty" placeholder="What are you looking for?">
-                        <button type="submit" class="search-button"><i class="icon-search"></i></button>
-                        <a href="#" class="search-close js-dropdn-close"><i class="icon-close-thin"></i></a>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="dropdn dropdn_wishlist">
-        <a href="account-wishlist.html" class="dropdn-link only-icon wishlist-link ">
-            <i class="icon-heart"></i><span class="dropdn-link-txt">Wishlist</span><span class="wishlist-qty">3</span>
-        </a>
-    </div>
-    <div class="dropdn dropdn_account dropdn_fullheight">
-        <a href="#" class="dropdn-link js-dropdn-link js-dropdn-link only-icon" data-panel="#dropdnAccount"><i class="icon-user"></i><span class="dropdn-link-txt">Account</span></a>
-    </div>
-                        <div class="dropdn dropdn_fullheight minicart">
-        <a href="#" class="dropdn-link js-dropdn-link minicart-link only-icon" data-panel="#dropdnMinicart">
-            <i class="icon-basket"></i>
-            <span class="minicart-qty">3</span>
-            <span class="minicart-total hide-mobile">$34.99</span>
-        </a>
-    </div>
-                    </div>
+<body>
+
+    <!-- ==== preloader start ==== -->
+    <div id="preloader">
+        <div id="ctn-preloader" class="ctn-preloader">
+            <div class="animation-preloader">
+                <div class="spinner"></div>
+                <div class="txt-loading">
+                    <span data-text-preloader="L" class="letters-loading">
+                        L
+                    </span>
+
+                    <span data-text-preloader="O" class="letters-loading">
+                        O
+                    </span>
+
+                    <span data-text-preloader="A" class="letters-loading">
+                        A
+                    </span>
+
+                    <span data-text-preloader="D" class="letters-loading">
+                        D
+                    </span>
+
+                    <span data-text-preloader="I" class="letters-loading">
+                        I
+                    </span>
+
+                    <span data-text-preloader="N" class="letters-loading">
+                        N
+                    </span>
+
+                    <span data-text-preloader="G" class="letters-loading">
+                        G
+                    </span>
                 </div>
             </div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
         </div>
     </div>
-        <div class="hdr hdr-style5">
-            <div class="hdr-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-auto show-mobile">
-    <div class="menu-toggle"> <a href="#" class="mobilemenu-toggle"><i class="icon-menu"></i></a> </div>
-                        </div>
-                        <div class="col-auto hdr-logo">
-                            <a href="index.html" class="logo">TURFiT</a>
-                        </div>
-                        <div class="hdr-nav hide-mobile nav-holder">
-    <ul class="mmenu mmenu-js">
-        <li class="mmenu-item--simple"><a href="{% url 'turfuser:index' %}" class="active"><span>HOME</span></a>
-        </li>
-        <li class="mmenu-item--simple"><a href="#">PAGES</a></li>
-    </ul>
-            </div>
-        </li>
-    </ul>
-                        </div>
-                        <div class="hdr-links-wrap col-auto ml-auto">
-                            <div class="hdr-group-link hide-mobile">
-                                <div class="hdr-inline-link">
-    <div class="dropdn_language">
-        <div class="dropdn dropdn_language dropdn_language--noimg dropdn_caret">
-            <a href="#" class="dropdn-link js-dropdn-link"><span class="js-dropdn-select-current">English</span><i class="icon-angle-down"></i></a>
-            <div class="dropdn-content">
-                <ul>
-                    <li class="active"><a href="#"><img src="images/flags/en.html" alt="">English</a></li>
-                    <li><a href="#"><img src="images/flags/sp.html" alt="">Spanish</a></li>
-                    <li><a href="#"><img src="images/flags/de.html" alt="">German</a></li>
-                    <li><a href="#"><img src="images/flags/fr.html" alt="">French</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="dropdn_currency">
-        <div class="dropdn dropdn_caret">
-                <a href="#" class="dropdn-link js-dropdn-link">US dollars<i class="icon-angle-down"></i></a>
-                <div class="dropdn-content">
-                        <ul>
-                            <li class="active"><a href="#"><span>US dollars</span></a></li>
-                            <li><a href="#"><span>Euro</span></a></li>
-                            <li><a href="#"><span>UK pounds</span></a></li>
-                        </ul>
-                </div>
-        </div>
-    </div>
+    <!-- ==== / preloader end ==== -->
+
+
+        <!-- ==== header start ==== -->
+        <header class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="nav">
+                            <div class="nav__content">
+                                <div class="nav__logo">
+                                    <a href="{% url 'turfuser:index' %}">
+                                        <h4>TURFiT</h4>
+                                    </a>
+                                </div>
+                                <div class="nav__menu">
+                                    <div class="nav__menu-logo d-flex d-xl-none">
+                                        <a href="index.html" class="text-center hide-nav">
+                                            <img src="{% static 'turfsuer/images/logo.png' %}" alt="Logo">
+                                        </a>
+                                        <a href="javascript:void(0)" class="nav__menu-close">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </a>
+                                    </div>
+    
+                                    <ul class="nav__menu-items">
+                                        <li class="nav__menu-item nav__menu-item--dropdown">
+                                            <a href="{% url 'turfuser:index' %}" class="nav__menu-link nav__menu-link--dropdown">
+                                                Home
+                                            </a>
+                                        </li>
+                                        <li class="nav__menu-item nav__menu-item--dropdown">
+                                            <a href="{% url 'turfuser:about' %}" class="nav__menu-link nav__menu-link--dropdown">
+                                                About
+                                            </a>
+                                            
+                                        </li>
+                                        <li class="nav__menu-item nav__menu-item--dropdown">
+                                            <a href="{% url 'turfuser:gallery' %}" class="nav__menu-link nav__menu-link--dropdown">
+                                                Gallery
+                                            </a>
+                                            
+                                        </li>
+                                        <li class="nav__menu-item nav__menu-item--dropdown">
+                                            <a href="{% url 'turfuser:turfs' %}" class="nav__menu-link nav__menu-link--dropdown">
+                                                Turfs
+                                            </a>
+                                            
+                                        </li>
+                                        <li class="nav__menu-item nav__menu-item--dropdown">
+                                            <a href="{% url 'turfuser:contact' %}" class="nav__menu-link nav__menu-link--dropdown">
+                                                Contact
+                                            </a>
+                                            
+                                        </li>
+                                        <li class="nav__menu-item d-block d-md-none">
+                                            <a href="sign-in.html" class="cmn-button cmn-button--secondary">Sign In</a>
+                                            <a href="sign-up.html" class="cmn-button">Sign Up</a>
+                                        </li>
+                                    </ul>
+                                    <div class="social">
+                                        <a href="#">
+                                            <i class="fa-brands fa-facebook-f"></i>
+                                        </a>
+                                        <a href="#">
+                                            <i class="fa-brands fa-twitter"></i>
+                                        </a>
+                                        <a href="#">
+                                            <i class="fa-brands fa-linkedin-in"></i>
+                                        </a>
+                                        <a href="#">
+                                            <i class="fa-brands fa-square-instagram"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="nav__uncollapsed">
+                                    <form class="d-flex" role="search" method="POST" action='{% url "turfuser:search" %}'>
+                                        {% csrf_token %}
+                                        <input class="form-control me-2" id="q" name="q" type="search" placeholder="Search location..." aria-label="Search">
+                                        <button class="btn btn-outline-success" type="submit">Search</button>
+                                      </form>
+                                    <div class="nav__uncollapsed-item d-none d-md-flex">
+                                        
+                                        <a href="{% url 'turfuser:logout' %}" class="cmn-button">Logout</a>
+                                    </div>
+                                    <button class="nav__bar d-block d-xl-none">
+                                        <span class="icon-bar top-bar"></span>
+                                        <span class="icon-bar middle-bar"></span>
+                                        <span class="icon-bar bottom-bar"></span>
+                                    </button>
                                 </div>
                             </div>
-                            <div class="hdr-inline-link">
-    <div class="search_container_desktop">
-        <div class="dropdn dropdn_search dropdn_fullwidth">
-            <a href="#" class="dropdn-link  js-dropdn-link only-icon"><i class="icon-search"></i><span class="dropdn-link-txt">Search</span></a>
-            <div class="dropdn-content">
-                <div class="container">
-                    <form method="get" action="#" class="search search-off-popular">
-                        <input name="search" type="text" class="search-input input-empty" placeholder="What are you looking for?">
-                        <button type="submit" class="search-button"><i class="icon-search"></i></button>
-                        <a href="#" class="search-close js-dropdn-close"><i class="icon-close-thin"></i></a>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="dropdn dropdn_wishlist">
-        <a href="account-wishlist.html" class="dropdn-link only-icon wishlist-link ">
-            <i class="icon-heart"></i><span class="dropdn-link-txt">Wishlist</span><span class="wishlist-qty">3</span>
-        </a>
-    </div>
-    <div class="dropdn dropdn_account dropdn_fullheight">
-        <a href="#" class="dropdn-link js-dropdn-link js-dropdn-link only-icon" data-panel="#dropdnAccount"><i class="icon-user"></i><span class="dropdn-link-txt">Account</span></a>
-    </div>
-                                <div class="dropdn dropdn_fullheight minicart">
-        <a href="#" class="dropdn-link js-dropdn-link minicart-link only-icon" data-panel="#dropdnMinicart">
-            <i class="icon-basket"></i>
-            <span class="minicart-qty">3</span>
-            <span class="minicart-total hide-mobile">$34.99</span>
-        </a>
-    </div>
-                            </div>
-                        </div>
+                        </nav>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
+            <div class="backdrop"></div>
+        </header>
+        <!-- ==== / header end ==== -->
+    

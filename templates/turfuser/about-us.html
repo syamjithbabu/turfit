@@ -1,0 +1,724 @@
+{% extends 'turfuser/partials/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+  <!-- ==== banner start ==== -->
+  <section class="banner--inner">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="banner--inner__content">
+            <h2>About Us</h2>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="banner--inner__breadcrumb d-flex justify-content-start justify-content-md-end">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  About Us
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==== / banner end ==== -->
+
+  <!-- ==== about section start ==== -->
+  <section class="section about about--alt">
+    <div class="container">
+      <div class="row section__row align-items-center">
+        <div class="col-lg-6 col-xl-6 section__col">
+          <div class="section__content">
+            <h5 class="section__content-sub-title">About us</h5>
+            <h2 class="section__content-title">
+              We Are The Best Golf Club In Your Local Area
+            </h2>
+            <p class="section__content-text">
+              We offer a lot of courses of varying difficulty and beautiful
+              scenery that golfers of all skill levels can enjoy. You will
+              learn golf from professionals with our competent and experienced
+              staff. You will have a great fun with our magnificent
+              illuminated field.
+            </p>
+            <div class="about__section-inner">
+              <div class="about__section-inner__single">
+                <div class="about__section-inner__single-thumb">
+                  <i class="golftio-flag"></i>
+                </div>
+                <div class="about__section-inner__single-content">
+                  <h5>Professional Team</h5>
+                  <p class="secondary-text">
+                    Modern & latest equipment with expert coaching
+                  </p>
+                </div>
+              </div>
+              <div class="about__section-inner__single">
+                <div class="about__section-inner__single-thumb">
+                  <i class="golftio-shot-great-upper"></i>
+                </div>
+                <div class="about__section-inner__single-content">
+                  <h5>Professional Trainings</h5>
+                  <p class="secondary-text">
+                    Modern & latest equipment with expert coaching
+                  </p>
+                </div>
+              </div>
+              <div class="about__section-inner__single">
+                <div class="about__section-inner__single-thumb">
+                  <i class="golftio-sticks"></i>
+                </div>
+                <div class="about__section-inner__single-content">
+                  <h5>Practice Facilities</h5>
+                  <p class="secondary-text">
+                    Modern & latest equipment with expert coaching
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="section__content-cta">
+              <a href="about-us.html" class="cmn-button">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xl-5 offset-xl-1 section__col">
+          <div class="about__thumb wow fadeInUp" data-wow-duration="0.4s">
+            <img src="{% static 'turfuser/images/about-thumb.png' %}" alt="Image" class="unset">
+            <div class="about__experience">
+              <div class="about__experience-thumb">
+                <i class="golftio-ball"></i>
+              </div>
+              <h3>
+                <span class="odometer" data-odometer-final="30"></span>
+                <span>+</span>
+              </h3>
+              <p>Years of experience</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==== / about section end ==== -->
+
+  <!-- ==== club section start ==== -->
+  <section class="section club club--alt" data-background="{% static 'turfuser/images/flag-bg.png' %}">
+    <div class="container">
+      <div class="row section__row">
+        <div class="col-lg-6 col-xl-5 section__col d-none d-lg-block">
+          <div class="club__thumb dir-rtl wow fadeInUp" data-wow-duration="0.4s">
+            <img src="{% static 'turfuser/images/club-thumb.png' %}" alt="Image" class="unset">
+            <div class="club__thumb-experience">
+              <h3>
+                <span class="odometer" data-odometer-final="30"></span>
+                <span>+</span>
+              </h3>
+              <p>
+                Years <br>
+                of experience
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 offset-xl-1 section__col">
+          <div class="section__content">
+            <h5 class="section__content-sub-title">Club View</h5>
+            <h2 class="section__content-title">
+              Play and enjoy our club for free
+            </h2>
+            <p class="section__content-text">
+              We offer a lot of courses of varying difficulty and beautiful
+              scenery that golfers of all skill levels can enjoy. You will
+              learn golf from professionals with our competent and experienced
+              staff. You will have a great fun with our magnificent
+              illuminated field.
+            </p>
+            <div class="section__content-inner">
+              <ul>
+                <li>
+                  <i class="golftio-pin-checked"></i>300+ Golf Competitions
+                </li>
+                <li><i class="golftio-pin-checked"></i>Proficient on Golf</li>
+                <li>
+                  <i class="golftio-pin-checked"></i>Amateur Championships
+                </li>
+                <li><i class="golftio-pin-checked"></i>Individual Support</li>
+              </ul>
+            </div>
+            <div class="section__content-cta">
+              <a href="join-club.html" class="cmn-button">Join Our Club</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==== / club section end ==== -->
+
+  <!-- ==== team section start ==== -->
+  <section class="section team wow fadeInUp" data-wow-duration="0.4s">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <div class="section__header">
+            <h5 class="section__header-sub-title">Our Team</h5>
+            <h2 class="section__header-title">Meet Our Experts</h2>
+            <p>
+              Golftio Sports Club is a golf club with a history that goes back
+              to XX century. From a cricket club to soccer tournaments,
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="team__slider--secondary">
+        <div class="team__slider-card">
+          <div class="team__slider-card__thumb">
+            <img src="{% static 'turfuser/images/team/one.png' %}" alt="Team">
+          </div>
+          <div class="team__slider-card__content">
+            <h5>Jerome Bell</h5>
+            <p class="secondary-text">Golfer</p>
+            <div class="social">
+              <a href="#">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-square-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="team__slider-card">
+          <div class="team__slider-card__thumb">
+            <img src="{% static 'turfuser/images/team/two.png' %}" alt="Team">
+          </div>
+          <div class="team__slider-card__content">
+            <h5>Mariah Tal</h5>
+            <p class="secondary-text">Golfer</p>
+            <div class="social">
+              <a href="#">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-square-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="team__slider-card">
+          <div class="team__slider-card__thumb">
+            <img src="{% static 'turfuser/images/team/three.png' %}" alt="Team">
+          </div>
+          <div class="team__slider-card__content">
+            <h5>Robert Fox</h5>
+            <p class="secondary-text">Golfer</p>
+            <div class="social">
+              <a href="#">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-square-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="team__slider-card">
+          <div class="team__slider-card__thumb">
+            <img src="{% static 'turfuser/images/team/four.png' %}" alt="Team">
+          </div>
+          <div class="team__slider-card__content">
+            <h5>Andrea Reed</h5>
+            <p class="secondary-text">Golfer</p>
+            <div class="social">
+              <a href="#">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-square-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="team__slider-card">
+          <div class="team__slider-card__thumb">
+            <img src="{% static 'turfuser/images/team/one.png' %}" alt="Team">
+          </div>
+          <div class="team__slider-card__content">
+            <h5>Jerome Bell</h5>
+            <p class="secondary-text">Golfer</p>
+            <div class="social">
+              <a href="#">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-square-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="team__slider-card">
+          <div class="team__slider-card__thumb">
+            <img src="{% static 'turfuser/images/team/two.png' %}" alt="Team">
+          </div>
+          <div class="team__slider-card__content">
+            <h5>Mariah Tal</h5>
+            <p class="secondary-text">Golfer</p>
+            <div class="social">
+              <a href="#">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-square-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="team__slider-card">
+          <div class="team__slider-card__thumb">
+            <img src="{% static 'turfuser/images/team/three.png' %}" alt="Team">
+          </div>
+          <div class="team__slider-card__content">
+            <h5>Robert Fox</h5>
+            <p class="secondary-text">Golfer</p>
+            <div class="social">
+              <a href="#">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-square-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="team__slider-card">
+          <div class="team__slider-card__thumb">
+            <img src="{% static 'turfuser/images/team/four.png' %}" alt="Team">
+          </div>
+          <div class="team__slider-card__content">
+            <h5>Andrea Reed</h5>
+            <p class="secondary-text">Golfer</p>
+            <div class="social">
+              <a href="#">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-square-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="slider-navigation">
+            <button class="next-team--secondary cmn-button cmn-button--secondary">
+              <i class="fa-solid fa-angle-left"></i>
+            </button>
+            <button class="prev-team--secondary cmn-button cmn-button--secondary">
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==== / team section end ==== -->
+
+  <!-- ==== counter section start ==== -->
+  <section class="section counter">
+    <div class="container">
+      <div class="row section__row">
+        <div class="col-sm-6 col-lg-3 section__col">
+          <div class="counter__card">
+            <div class="counter__card-thumb">
+              <i class="golftio-users"></i>
+            </div>
+            <div class="counter__card-content">
+              <h2>
+                <span class="odometer" data-odometer-final="850"></span>
+                <span>+</span>
+              </h2>
+              <p class="primary-text">Active Member</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 section__col">
+          <div class="counter__card">
+            <div class="counter__card-thumb">
+              <i class="golftio-shot-ground"></i>
+            </div>
+            <div class="counter__card-content">
+              <h2>
+                <span class="odometer" data-odometer-final="70"></span>
+                <span>+</span>
+              </h2>
+              <p class="primary-text">Professional Trainer</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 section__col">
+          <div class="counter__card">
+            <div class="counter__card-thumb">
+              <i class="golftio-trophy"></i>
+            </div>
+            <div class="counter__card-content">
+              <h2>
+                <span class="odometer" data-odometer-final="50"></span>
+                <span>+</span>
+              </h2>
+              <p class="primary-text">Award Winning</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 section__col">
+          <div class="counter__card">
+            <div class="counter__card-thumb">
+              <i class="golftio-user-shield"></i>
+            </div>
+            <div class="counter__card-content">
+              <h2>
+                <span class="odometer" data-odometer-final="60"></span>
+                <span>+</span>
+              </h2>
+              <p class="primary-text">Available Field</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==== / counter section end ==== -->
+
+  <!-- ==== testimonial section start ==== -->
+  <section class="section testimonial wow fadeInUp" data-wow-duration="0.4s">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <div class="section__header">
+            <h5 class="section__header-sub-title">Testimonial</h5>
+            <h2 class="section__header-title">
+              Our Members Thinking About Us
+            </h2>
+            <p>
+              Golftio Sports Club is a golf club with a history that goes back
+              to XX century. From a cricket club to soccer tournaments,
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-sm-10 col-md-12">
+          <div class="testimonial__slider">
+            <div class="testimonial__slider-card">
+              <div class="testimonial__slider-card__body">
+                <div class="testimonial__slider-card__body-review">
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                </div>
+                <p>
+                  There are many variations of passages of Lorem Ipsum
+                  available, but the majority have suffered alteration in
+                </p>
+              </div>
+              <div class="testimonial__slider-card__author">
+                <div class="testimonial__slider-card__author-thumb">
+                  <img src="{% static 'turfuser/images/testimonial/one.png' %}" alt="Image">
+                </div>
+                <div class="testimonial__slider-card__author-info">
+                  <h6>Jenelia D'suza</h6>
+                  <p class="secondary-text">Student</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial__slider-card">
+              <div class="testimonial__slider-card__body">
+                <div class="testimonial__slider-card__body-review">
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                </div>
+                <p>
+                  There are many variations of passages of Lorem Ipsum
+                  available, but the majority have suffered alteration in
+                </p>
+              </div>
+              <div class="testimonial__slider-card__author">
+                <div class="testimonial__slider-card__author-thumb">
+                  <img src="{% static 'turfuser/images/testimonial/two.png' %}" alt="Image">
+                </div>
+                <div class="testimonial__slider-card__author-info">
+                  <h6>Sarika Paleccha</h6>
+                  <p class="secondary-text">Player</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial__slider-card">
+              <div class="testimonial__slider-card__body">
+                <div class="testimonial__slider-card__body-review">
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                </div>
+                <p>
+                  There are many variations of passages of Lorem Ipsum
+                  available, but the majority have suffered alteration in
+                </p>
+              </div>
+              <div class="testimonial__slider-card__author">
+                <div class="testimonial__slider-card__author-thumb">
+                  <img src="{% static 'turfuser/images/testimonial/three.png' %}" alt="Image">
+                </div>
+                <div class="testimonial__slider-card__author-info">
+                  <h6>Brad Hogds</h6>
+                  <p class="secondary-text">Junior Player</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial__slider-card">
+              <div class="testimonial__slider-card__body">
+                <div class="testimonial__slider-card__body-review">
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                </div>
+                <p>
+                  There are many variations of passages of Lorem Ipsum
+                  available, but the majority have suffered alteration in
+                </p>
+              </div>
+              <div class="testimonial__slider-card__author">
+                <div class="testimonial__slider-card__author-thumb">
+                  <img src="{% static 'turfuser/images/testimonial/one.png' %}" alt="Image">
+                </div>
+                <div class="testimonial__slider-card__author-info">
+                  <h6>Jenelia D'suza</h6>
+                  <p class="secondary-text">Student</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial__slider-card">
+              <div class="testimonial__slider-card__body">
+                <div class="testimonial__slider-card__body-review">
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                </div>
+                <p>
+                  There are many variations of passages of Lorem Ipsum
+                  available, but the majority have suffered alteration in
+                </p>
+              </div>
+              <div class="testimonial__slider-card__author">
+                <div class="testimonial__slider-card__author-thumb">
+                  <img src="{% static 'turfuser/images/testimonial/two.png' %}" alt="Image">
+                </div>
+                <div class="testimonial__slider-card__author-info">
+                  <h6>Sarika Paleccha</h6>
+                  <p class="secondary-text">Player</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial__slider-card">
+              <div class="testimonial__slider-card__body">
+                <div class="testimonial__slider-card__body-review">
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                  <i class="golftio-star"></i>
+                </div>
+                <p>
+                  There are many variations of passages of Lorem Ipsum
+                  available, but the majority have suffered alteration in
+                </p>
+              </div>
+              <div class="testimonial__slider-card__author">
+                <div class="testimonial__slider-card__author-thumb">
+                  <img src="{% static 'turfuser/images/testimonial/three.png' %}" alt="Image">
+                </div>
+                <div class="testimonial__slider-card__author-info">
+                  <h6>Brad Hogds</h6>
+                  <p class="secondary-text">Junior Player</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="slider-navigation">
+            <button class="next-testimonial cmn-button cmn-button--secondary">
+              <i class="fa-solid fa-angle-left"></i>
+            </button>
+            <button class="prev-testimonial cmn-button cmn-button--secondary">
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==== / testimonial section end ==== -->
+
+  <!-- ==== join club section start ==== -->
+  <section class="join--tertiary bg-img" data-background="{% static 'turfuser/images/join-bg-three.png' %}">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-2 col-xl-6 offset-xl-6">
+          <div class="section__content">
+            <h5 class="section__content-sub-title">Join Club</h5>
+            <h2 class="section__content-title">Join our club</h2>
+            <div class="join-club__form">
+              <form action="#" method="post" name="joinClubForm">
+                <div class="input-group">
+                  <div class="input-single">
+                    <input type="text" name="user-name" id="userName" required placeholder="Your Name *">
+                  </div>
+                  <div class="input-single">
+                    <input type="text" name="user-phone" id="userPhone" required placeholder="Your Phone *">
+                  </div>
+                </div>
+                <div class="input-group">
+                  <div class="input-single">
+                    <input type="email" name="user-email" id="userEmail" required placeholder="Your Email *">
+                  </div>
+                  <div class="input-single">
+                    <input type="text" name="user-url" id="userUrl" placeholder="Website URL ">
+                  </div>
+                </div>
+                <div class="input-single">
+                  <textarea name="user-message" id="userMessage" placeholder="Message"></textarea>
+                </div>
+                <button type="submit" class="cmn-button">Submit Now</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==== / join club section end ==== -->
+
+  <!-- ==== sponsor section start ==== -->
+  <div class="sponsor wow fadeInUp" data-wow-duration="0.4s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="sponsor__inner">
+            <div class="sponsor__inner-card">
+              <img src="{% static 'turfuser/images/sponsor/one.png' %}" alt="Sponsor">
+            </div>
+            <div class="sponsor__inner-card">
+              <img src="{% static 'turfuser/images/sponsor/two.png' %}" alt="Sponsor">
+            </div>
+            <div class="sponsor__inner-card">
+              <img src="{% static 'turfuser/images/sponsor/three.png' %}" alt="Sponsor">
+            </div>
+            <div class="sponsor__inner-card">
+              <img src="{% static 'turfuser/images/sponsor/four.png' %}" alt="Sponsor">
+            </div>
+            <div class="sponsor__inner-card">
+              <img src="{% static 'turfuser/images/sponsor/five.png' %}" alt="Sponsor">
+            </div>
+            <div class="sponsor__inner-card">
+              <img src="{% static 'turfuser/images/sponsor/six.png' %}" alt="Sponsor">
+            </div>
+            <div class="sponsor__inner-card">
+              <img src="{% static 'turfuser/images/sponsor/one.png' %}" alt="Sponsor">
+            </div>
+            <div class="sponsor__inner-card">
+              <img src="{% static 'turfuser/images/sponsor/one.png' %}" alt="Sponsor">
+            </div>
+            <div class="sponsor__inner-card">
+              <img src="{% static 'turfuser/images/sponsor/two.png' %}" alt="Sponsor">
+            </div>
+            <div class="sponsor__inner-card">
+              <img src="{% static 'turfuser/images/sponsor/three.png' %}" alt="Sponsor">
+            </div>
+            <div class="sponsor__inner-card">
+              <img src="{% static 'turfuser/images/sponsor/four.png' %}" alt="Sponsor">
+            </div>
+            <div class="sponsor__inner-card">
+              <img src="{% static 'turfuser/images/sponsor/five.png' %}" alt="Sponsor">
+            </div>
+            <div class="sponsor__inner-card">
+              <img src="{% static 'turfuser/images/sponsor/six.png' %}" alt="Sponsor">
+            </div>
+            <div class="sponsor__inner-card">
+              <img src="{% static 'turfuser/images/sponsor/one.png' %}" alt="Sponsor">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ==== / sponsor section end ==== -->
+
+{% endblock %}
