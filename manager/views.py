@@ -103,7 +103,7 @@ def edit_time_slot(request,id):
         start_time = request.POST.get('starttime')
         end_time = request.POST.get('endtime')
         price = request.POST.get('rate')
-        time_slot = TimeSlot.objects.update(start_time=start_time,end_time=end_time,price=price)
+        time_slot = TimeSlot.objects.filter(id=id).update(start_time=start_time,end_time=end_time,price=price)
         return redirect('manager:view_turf')
     return render(request,'manager/edit_time_slots.html',context)
 

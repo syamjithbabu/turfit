@@ -59,7 +59,16 @@
                         <div class="product-description__content-tab">
                             <div class="product-description-tab-btns">
                                 
-                                <a href="#productReviews" class="product-description-tab-btn">Available Slots</a>
+                                <a href="#productReviews" class="product-description-tab-btn">Games :</a>
+                            </div>
+                            {% for games in games %}
+                            <h6>{{games.game}}</h6>
+                            {% endfor %}
+                        </div>
+                        <div class="product-description__content-tab">
+                            <div class="product-description-tab-btns">
+                                
+                                <a href="#productReviews" class="product-description-tab-btn">Available Slots :</a>
                             </div>
                             
                         </div>
