@@ -124,7 +124,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="section__header--secondary__cta">
-                                    <a href="event.html" class="cmn-button">See All Event</a>
+                                    <a href="{% url 'turfuser:events' %}" class="cmn-button">See All Event</a>
                                 </div>
                             </div>
                         </div>
@@ -132,40 +132,25 @@
                 </div>
             </div>
             <div class="row justify-content-center section__row">
+                {% for events in events %}
                 <div class="col-sm-10 col-md-6 section__col">
                     <div class="event__single">
                         <div class="event__single-thumb">
                             <a href="sign-up.html">
-                                <img src="{% static 'turfuser/images/event/one.png' %}" alt="Image">
+                                <img src="{{events.event_image.url}}" alt="Image">
                             </a>
                         </div>
                         <div class="event__single-content">
-                            <h3>13 <span class="primary-text">Nov</span></h3>
-                            <p>Friday at 10:00 am</p>
-                            <h5>Master Class</h5>
-                            <p class="secondary-text"><i class="golftio-location"></i> Parker Rd. Allentown, 31134</p>
-                            <p>Free</p>
-                            <a href="sign-up.html" class="cmn-button">Join Now</a>
+                            <h3>{{events.date}}</h3>
+                            <p>{{events.time}}</p>
+                            <h5>{{events.event_title}}</h5>
+                            <p class="secondary-text"><i class="golftio-location"></i> {{events.turf}}</p>
+                            <p>{{events.entry_fee}}</p>
+                            <a href="{% url 'turfuser:event_details' events.id %}" class="cmn-button">Join Now</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-10 col-md-6 section__col">
-                    <div class="event__single">
-                        <div class="event__single-thumb">
-                            <a href="sign-up.html">
-                                <img src="{% static 'turfuser/images/event/two.png' %}" alt="Image">
-                            </a>
-                        </div>
-                        <div class="event__single-content">
-                            <h3>27 <span class="primary-text">Nov</span></h3>
-                            <p>Saturday at 04:00 pm</p>
-                            <h5>Golf Championship</h5>
-                            <p class="secondary-text"><i class="golftio-location"></i> Parker Rd. Allentown, 31134</p>
-                            <p>$40.00</p>
-                            <a href="sign-up.html" class="cmn-button">Join Now</a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>

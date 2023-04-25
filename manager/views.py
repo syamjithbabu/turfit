@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
-from manager.forms import TurfForm
+from manager.forms import TurfForm,EventForm
 from website.models import TurfManager
-from manager.models import Turf,TimeSlot,Category
+from manager.models import Turf,TimeSlot,Category,Event,EventBook
 from turfuser.models import BookDate
 
 # Create your views here.
@@ -121,3 +121,75 @@ def delete_game(request,id):
     game = Category.objects.get(id=id)
     game.delete()
     return redirect('manager:index')
+
+def add_event(request):
+    manager_obj = TurfManager.objects.get(user=request.user)
+    print(manager_obj)
+    turfs = Turf.objects.filter(manager=manager_obj).all()
+    context = {
+        'turfs' : turfs
+    }
+    if request.method == 'POST':
+        add_event = EventForm(request.POST, request.FILES)
+        print(add_event)
+        if add_event.is_valid():
+            valdat = add_event.save()
+            Event.objects.filter(id=valdat.id).update(manager=manager_obj)
+            return redirect('manager:view_events')
+    return render(request,'manager/add_event.html',context)
+
+def view_events(request):
+    manager_obj = TurfManager.objects.get(user=request.user)
+    events = Event.objects.filter(manager = manager_obj).all()
+    context = {
+        'events' : events
+    }
+    return render(request,'manager/view_events.html',context)
+
+def edit_event(request,id):
+    manager_obj = TurfManager.objects.get(user=request.user)
+    edit_event = Event.objects.get(id=id)
+    turfs = Turf.objects.filter(manager=manager_obj).all()
+    context = {
+        'event' : edit_event,
+        'turfs' : turfs
+    }
+    if request.method == 'POST':
+        add_event = EventForm(request.POST, request.FILES)
+        print(add_event)
+        event_title = request.POST.get('event_title')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+        entry_fee = request.POST.get('entry_fee')
+        strength = request.POST.get('strength')
+        game = request.POST.get('game')
+        if add_event.is_valid():
+            print(id)
+            Event.objects.filter(id=id).update(manager=manager_obj,turf=edit_event.turf,event_title=event_title,date=date,time=time,entry_fee=entry_fee,strength=strength,game=game)
+            return redirect('manager:view_events')
+    return render(request,'manager/edit_events.html',context)
+
+def view_event_details(request,id):
+    event = Event.objects.get(id=id)
+    context = {
+        'event' : event
+    }
+    return render(request,'manager/view_event_details.html',context)
+
+def event_delete(request,id):
+    delete_event = Event.objects.get(id=id)
+    delete_event.delete()
+    return render(request,'manager/view_events.html')
+
+def event_booking(request):
+    manager_object = TurfManager.objects.get(user=request.user)
+    event_bookings = EventBook.objects.filter(manager=manager_object).all()
+    context = {
+        'bookings' : event_bookings
+    }
+    return render(request,'manager/event_bookings.html',context)
+
+def booked_event_delete(request,id):
+    delete_booking = EventBook.objects.get(id=id)
+    delete_booking.delete()
+    return render(request,'manager/index.html')

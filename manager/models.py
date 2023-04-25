@@ -36,3 +36,25 @@ class Category(models.Model):
     def __str__(self):
         return str(self.game)
     
+class Event(models.Model):
+    manager = models.ForeignKey(TurfManager,on_delete=models.CASCADE,null=True)
+    turf = models.CharField(max_length=200)
+    event_image = models.ImageField( upload_to="image/testimagemodel/")
+    date = models.DateField()
+    time = models.TimeField()
+    game = models.CharField(max_length=100)
+    event_title = models.CharField(max_length=200)
+    entry_fee = models.CharField(max_length=100)
+    strength = models.IntegerField()
+
+    def __str__(self):
+        return str(self.event_title)
+    
+class EventBook(models.Model):
+    manager = models.ForeignKey(TurfManager,on_delete=models.CASCADE,null=True)
+    event = models.ForeignKey(Event,on_delete=models.CASCADE,null=True)
+    user = models.ForeignKey(TurfUser,on_delete=models.CASCADE,null=True)
+
+    def __str__(self):
+        return str(self.user.name)
+    

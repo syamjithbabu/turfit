@@ -1,0 +1,111 @@
+{% extends 'turfuser/partials/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+  <!-- ==== banner start ==== -->
+  <section class="banner--inner">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="banner--inner__content">
+            <h2>Event Booking</h2>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="banner--inner__breadcrumb d-flex justify-content-start justify-content-md-end">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="shop.html">Events</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Events Booking
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==== / banner end ==== -->
+
+  <!-- ==== cart start ==== -->
+  <div class="section cart">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="cart__wrapper wow fadeInUp" data-wow-duration="0.4s">
+            <div class="cart-items-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Turf</th>
+                    <th>Event Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Entry Fee</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="cart-item">
+                    <td class="cart-item-info">
+                      <img src="{{event.event_image.url}}" alt="Image">
+                      <span class="secondary-text">{{event.turf}}</span>
+                    </td>
+                    <td class="cart-item-price">
+                        <span class="base-price">{{event.event_title}}</span>
+                      </td>
+                    <td class="cart-item-price">
+                       <span class="base-price">{{event.date}}</span>
+                    </td>
+                    <td class="cart-item-price">
+                      <span class="base-price">{{event.time}}</span>
+                    </td>
+                    <td class="cart-item-price">
+                        $<span class="base-price">{{event.entry_fee}}</span>
+                      </td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="cart__wrapper-footer">
+              <button onclick="book()" href="" class="cmn-button">Book</button>>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ==== / cart end ==== -->
+
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <script>
+            function book(id) {
+    swal("Thank You..!", {
+        icon: "success",
+    }).then((willDelete) => {
+        if (willDelete) { 
+            // Call the booknow function here
+            booknow();
+            swal("Requested successfully..!", {
+                icon: "success",
+            });
+            setTimeout(function () {
+                window.location.href = "turfuser/event_book"
+            }, 1000);
+        } else {
+            swal("Cancelled!");
+        }
+    });
+}
+     
+        
+        </script>
+
+{% endblock %}

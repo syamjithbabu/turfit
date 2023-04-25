@@ -16,5 +16,12 @@ urlpatterns = [
     path('edit-time-slot/<int:id>',views.edit_time_slot,name="edit_time_slots"),
     path('add-agmes/<int:id>',views.add_games,name="add_games"),
     path('delete-game/<int:id>',views.delete_game,name="delete_game"),
+    path('add-event',views.add_event,name="add_event"),
+    path('view-event',views.view_events,name="view_events"),
+    path('edit-event/<int:id>',views.edit_event,name="edit_event"),
+    path('view-event-details/<int:id>',views.view_event_details,name="view_event_details"),
+    path('delete-event/<int:id>',views.event_delete,name="event_delete"),
+    path('booked-events',views.event_booking,name="booked_events"),
+    path('delete-booked-event/<int:id>',views.booked_event_delete,name="delete_booked_event")
  
 ]

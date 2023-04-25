@@ -1,0 +1,294 @@
+{% extends 'manager/partials/base.html' %}
+{% block content %}
+{% load static %}
+<div class="page-wrapper">
+    <div class="content container-fluid">
+
+        <div class="page-header">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="page-title">Events</h3>
+                    <ul class="breadcrumb">
+                        <li class=""><a href="#">Dashboard /</a></li>
+                        <li class=""><a href="#">Events /</a></li>
+                        <li class="breadcrumb-item active">Add Event</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Event Info</h4>
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+
+                                        <label>Event Title</label>
+                                        <input type="text" required class="form-control" id=""
+                                            name="event_title" value="{{event.event_title}}">
+                                        <p id="pname" style="color: red;"></p>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <label>Date</label>
+                                        <input type="date" required class="form-control" id=""
+                                            name="date" value="{{event.date}}">
+                                        <p id="pphone" style="color: red;"></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Time</label>
+                                        <input type="time" required class="form-control" id=""
+                                            name="time" value="{{event.time}}">
+                                        <p id="pphone" style="color: red;"></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Game</label>
+                                        <input type="text" required class="form-control" id=""
+                                            name="game" value="{{event.game}}">
+                                        <p id="pphone" style="color: red;"></p>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Image:</label>
+                                        <input type="file" required class="form-control" id=""
+                                            name="event_image" value="{{event.event_image}}">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Max Strength</label>
+                                        <input type="number" required class="form-control" id=""
+                                            name="strength" value="{{event.strength}}">
+                                        <p id="pphone" style="color: red;"></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Entry Fee</label>
+                                        <input type="text" required class="form-control" id=""
+                                            name="entry_fee" value="{{event.entry_fee}}">
+                                        <p id="pphone" style="color: red;"></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Turf</label><br>
+                                        <select id="turf" name="turf">
+                                            {% for turf in turfs %}
+                                            <option value="{{turf.turf_name}}">{{turf.turf_name}}</option>
+                                            {% endfor %}
+                                          </select>
+                                    </div>
+                                    
+
+                                    
+                                </div>
+                                <button type="submit" class="btn btn-primary mr-1 mb-1 ">save</button>
+
+                        </form>
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js%}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $('#Savebuton').click(() => {
+        if (!$('#client_name').val()) {
+            $('#pname').html('Enter your name!')
+        }
+        else if (!$('#phone').val()) {
+            $('#pphone').html('Enter your Phone!')
+        }
+        else if (!$('#address').val()) {
+            $('#paddress').html('Enter your Address!')
+        }
+        else if (!$('#client_contact_type').val()) {
+            $('#pcontact').html('Chooes One!')
+        }
+        else if (!$('#state').val()) {
+            $('#pstate').html('Enter your State!')
+        }
+        else if (!$('#district').val()) {
+            $('#pdistrict').html('Enter your District')
+        }
+
+        else if (!$('#source_of_work').val()) {
+            $('#psource').html('Enter your Source of work')
+        }
+        else if (!$('#chance_of_confirm').val()) {
+            $('#pchance').html('Enter your Chance of Confirmation')
+        }
+        else if (!$('#start_date').val()) {
+            $('#pfrom').html('Enter your From Date')
+        }
+        else if (!$('#type_of_work').val()) {
+            $('#ptype').html('Enter your Work Type')
+        }
+        else if (!$('#measurement').val()) {
+            $('#parea').html('Enter your Area Meaurment')
+        }
+        else if (!$('#details_of_site').val()) {
+            $('#pdetail').html('Enter your Area details_of_site')
+        }
+
+        else {
+            $.ajax({
+                url: "/accounts_admin/savecustomer/",
+                type: 'post',
+                data: {
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                    'client_name': $('#client_name').val(),
+                    'phone': $('#phone').val(),
+                    'client_whsatpp': $('#client_whsatpp').val(),
+                    'email': $('#email').val(),
+                    'quotation_no': $('#quotation_no').val(),
+                    'address': $('#address').val(),
+                    'state': $('#state').val(),
+                    'district': $('#district').val(),
+                    'pincode': $('#pincode').val(),
+
+                    'source_of_work': $('#source_of_work').val(),
+                    'chance_of_confirm': $('#chance_of_confirm').val(),
+                    'start_date': $('#start_date').val(),
+                    'type_of_work': $('#type_of_work').val(),
+                    'measurement': $('#measurement').val(),
+                    'details_of_site': $('#details_of_site').val(),
+                },
+                success: function (responce) {
+                    window.location.href = '/accounts_admin/customer';
+                }
+
+
+            })
+        }
+
+
+    })
+
+
+
+    $('#Createbuton').click(() => {
+        if (!$('#client_name').val()) {
+            $('#pname').html('Enter your name!')
+        }
+        else if (!$('#phone').val()) {
+            $('#pphone').html('Enter your Phone!')
+        }
+        else if (!$('#address').val()) {
+            $('#paddress').html('Enter your Address!')
+        }
+        else if (!$('#client_contact_type').val()) {
+            $('#pcontact').html('Chooes One!')
+        }
+        else if (!$('#state').val()) {
+            $('#pstate').html('Enter your State!')
+        }
+        else if (!$('#district').val()) {
+            $('#pdistrict').html('Enter your District')
+        }
+
+        else if (!$('#source_of_work').val()) {
+            $('#psource').html('Enter your Source of work')
+        }
+        else if (!$('#chance_of_confirm').val()) {
+            $('#pchance').html('Enter your Chance of Confirmation')
+        }
+        else if (!$('#start_date').val()) {
+            $('#pfrom').html('Enter your From Date')
+        }
+        else if (!$('#type_of_work').val()) {
+            $('#ptype').html('Enter your Work Type')
+        }
+        else if (!$('#measurement').val()) {
+            $('#parea').html('Enter your Area Meaurment')
+        }
+        else if (!$('#details_of_site').val()) {
+            $('#pdetail').html('Enter your Area details_of_site')
+        }
+        else {
+
+            $.ajax({
+                url: "/accounts_admin/estimatedata/",
+                type: 'post',
+                data: {
+
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                    'client_name': $('#client_name').val(),
+                    'phone': $('#phone').val(),
+                    'client_whsatpp': $('#client_whsatpp').val(),
+                    'email': $('#email').val(),
+                    'quotation_no': $('#quotation_no').val(),
+                    'address': $('#address').val(),
+                    'state': $('#state').val(),
+                    'district': $('#district').val(),
+                    'pincode': $('#pincode').val(),
+
+                    'source_of_work': $('#source_of_work').val(),
+                    'chance_of_confirm': $('#chance_of_confirm').val(),
+                    'start_date': $('#start_date').val(),
+                    'type_of_work': $('#type_of_work').val(),
+                    'measurement': $('#measurement').val(),
+                    'details_of_site': $('#details_of_site').val(),
+                },
+                success: function (responce) {
+                    window.location.href = '/accounts_admin/addcustomer/?phone-no=' + responce.client.phone
+
+                    $("#checkname").val(responce.client.phone)
+                }
+
+
+
+            })
+
+        }
+
+    })
+
+    $('#phone').change(() => {
+
+        $.ajax({
+            url: "/accounts_admin/phoneexist/",
+            type: 'post',
+            data: {
+                'phone': $('#phone').val()
+            },
+            success: function (responce) {
+
+                if (responce.IsExist == true) {
+                    document.getElementById('pphone').innerHTML = 'User Phone Number Already Exist '
+
+                    $('#Savebuton').prop('disabled', true)
+                    $('#Createbuton').prop('disabled', true)
+                }
+                else {
+                    document.getElementById('pphone').innerHTML = ''
+                    $('#Savebuton').prop('disabled', false)
+                    $('#Createbuton').prop('disabled', false)
+                }
+            }
+
+        })
+    })
+
+
+
+</script>
+{% endblock %}

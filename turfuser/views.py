@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import login,logout
-from manager.models import Turf,TimeSlot,Category
+from manager.models import Turf,TimeSlot,Category,Event,EventBook
 from website.models import TurfUser
 from django.db.models import Q
 
@@ -8,16 +8,22 @@ from django.db.models import Q
 
 def index(request):
     turfs = Turf.objects.filter().all()
+    events = Event.objects.filter().all()
     context = {
-        'turfs' : turfs
+        'turfs' : turfs,
+        'events' : events
     }
     return render(request,'turfuser/index.html',context)
 
 def about(request):
     return render(request,'turfuser/about-us.html')
 
-def gallery(request):
-    return render(request,'turfuser/gallery.html')
+def events(request):
+    events = Event.objects.filter().all()
+    context = {
+        'events' : events
+    }
+    return render(request,'turfuser/gallery.html',context)
 
 def turfs(request):
     turfs = Turf.objects.filter().all()
@@ -61,3 +67,13 @@ def search(request):
         results = Turf.objects.filter(turf_place__icontains=search)
         context = {"turfs": results,"query":search}
     return render(request, 'turfuser/search-results.html', context)
+
+def event_details(request,id):
+    events_book = Event.objects.get(id=id)
+    turf_user = TurfUser.objects.get(user=request.user)
+    print(turf_user)
+    EventBook.objects.filter(id=id).create(event=events_book,user=turf_user,manager=events_book.manager)
+    context = {
+        'event' : events_book
+    }
+    return render(request,'turfuser/event_booking.html',context)

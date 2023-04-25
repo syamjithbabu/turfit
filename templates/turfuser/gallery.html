@@ -33,41 +33,46 @@
   </section>
   <!-- ==== / banner end ==== -->
 
-  <!-- ==== gallery section start ==== -->
-  <div class="section gallery wow fadeInUp" data-wow-duration="0.4s">
+  <section class="section event wow fadeInUp" data-wow-duration="0.4s">
     <div class="container">
-      <div class="row section__row align-items-center">
-        <div class="col-sm-6 col-lg-4 col-xl-4 section__col">
-          <div class="gallery__thumb">
-            <div class="gallery__thumb-single">
-              <img src="{% static 'turfuser/images/gallery/one.png' %}" alt="Image">
+        <div class="row">
+            <div class="col-12">
+                <div class="section__header--secondary">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="section__header--secondary__content">
+                                <h5>Tournaments</h5>
+                                <h2>Our upcoming tournaments</h2>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
             </div>
-            <div class="gallery__thumb-single">
-              <img src="{% static 'turfuser/images/gallery/two.png' %}" alt="Image">
-            </div>
-          </div>
         </div>
-        <div class="col-lg-4 col-xl-4 section__col d-none d-lg-block">
-          <div class="gallery__thumb">
-            <div class="gallery__thumb-single">
-              <img src="{% static 'turfuser/images/gallery/three.png' %}" alt="Image">
+        <div class="row justify-content-center section__row">
+            {% for events in events %}
+            <div class="col-sm-10 col-md-6 section__col">
+                <div class="event__single">
+                    <div class="event__single-thumb">
+                        <a href="sign-up.html">
+                            <img src="{{events.event_image.url}}" alt="Image">
+                        </a>
+                    </div>
+                    <div class="event__single-content">
+                        <h3>{{events.date}}</h3>
+                        <p>{{events.time}}</p>
+                        <h5>{{events.event_title}}</h5>
+                        <p class="secondary-text"><i class="golftio-location"></i> {{events.turf}}</p>
+                        <p>{{events.entry_fee}}</p>
+                        <a href="{% url 'turfuser:event_details' events.id %}" class="cmn-button">Join Now</a>
+                    </div>
+                </div>
             </div>
-          </div>
+            {% endfor %}
         </div>
-        <div class="col-sm-6 col-lg-4 col-xl-4 section__col">
-          <div class="gallery__thumb">
-            <div class="gallery__thumb-single">
-              <img src="{% static 'turfuser/images/gallery/four.png' %}" alt="Image">
-            </div>
-            <div class="gallery__thumb-single">
-              <img src="{% static 'turfuser/images/gallery/five.png' %}" alt="Image">
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  <!-- ==== / gallery section end ==== -->
+</section>
 
   <!-- ==== gallery slider section start ==== -->
   <section class="gallery-slider section">
