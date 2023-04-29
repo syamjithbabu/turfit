@@ -18,7 +18,7 @@
           <div class="banner--inner__breadcrumb d-flex justify-content-start justify-content-md-end">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'turfuser:index' %}">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">
                   About Us
                 </li>
@@ -39,14 +39,10 @@
           <div class="section__content">
             <h5 class="section__content-sub-title">About us</h5>
             <h2 class="section__content-title">
-              We Are The Best Golf Club In Your Local Area
+              We provide solution for finding turfs near you
             </h2>
             <p class="section__content-text">
-              We offer a lot of courses of varying difficulty and beautiful
-              scenery that golfers of all skill levels can enjoy. You will
-              learn golf from professionals with our competent and experienced
-              staff. You will have a great fun with our magnificent
-              illuminated field.
+              Are you looking to play after work, organize your Sunday Five's football match? Explore the largest network of sports facilities whole over the India
             </p>
             <div class="about__section-inner">
               <div class="about__section-inner__single">
@@ -54,9 +50,9 @@
                   <i class="golftio-flag"></i>
                 </div>
                 <div class="about__section-inner__single-content">
-                  <h5>Professional Team</h5>
+                  <h5>Search</h5>
                   <p class="secondary-text">
-                    Modern & latest equipment with expert coaching
+                    Are you looking to play after work, organize your Sunday Five's football match? Explore the largest network of sports facilities whole over the India
                   </p>
                 </div>
               </div>
@@ -65,29 +61,27 @@
                   <i class="golftio-shot-great-upper"></i>
                 </div>
                 <div class="about__section-inner__single-content">
-                  <h5>Professional Trainings</h5>
+                  <h5>Book</h5>
                   <p class="secondary-text">
-                    Modern & latest equipment with expert coaching
-                  </p>
-                </div>
+                    Once you’ve found the perfect ground, court or gym, Connect with the venue through the Book Now Button to make online booking & secure easier payment                </div>
               </div>
               <div class="about__section-inner__single">
                 <div class="about__section-inner__single-thumb">
                   <i class="golftio-sticks"></i>
                 </div>
                 <div class="about__section-inner__single-content">
-                  <h5>Practice Facilities</h5>
+                  <h5>Play</h5>
                   <p class="secondary-text">
-                    Modern & latest equipment with expert coaching
-                  </p>
+                    You’re the hero, you’ve found a stunning turf or court, booked with ease and now its time to play. The scene is set for your epic match.                  </p>
                 </div>
               </div>
             </div>
+            <!--
             <div class="section__content-cta">
               <a href="about-us.html" class="cmn-button">Read More</a>
-            </div>
+            </div>-->
           </div>
-        </div>
+        </div><!--
         <div class="col-lg-6 col-xl-5 offset-xl-1 section__col">
           <div class="about__thumb wow fadeInUp" data-wow-duration="0.4s">
             <img src="{% static 'turfuser/images/about-thumb.png' %}" alt="Image" class="unset">
@@ -105,7 +99,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section>-->
   <!-- ==== / about section end ==== -->
 
   <!-- ==== club section start ==== -->
@@ -115,6 +109,7 @@
         <div class="col-lg-6 col-xl-5 section__col d-none d-lg-block">
           <div class="club__thumb dir-rtl wow fadeInUp" data-wow-duration="0.4s">
             <img src="{% static 'turfuser/images/club-thumb.png' %}" alt="Image" class="unset">
+            <!--
             <div class="club__thumb-experience">
               <h3>
                 <span class="odometer" data-odometer-final="30"></span>
@@ -124,37 +119,33 @@
                 Years <br>
                 of experience
               </p>
-            </div>
+            </div>-->
           </div>
         </div>
         <div class="col-lg-6 offset-xl-1 section__col">
           <div class="section__content">
-            <h5 class="section__content-sub-title">Club View</h5>
+            <h5 class="section__content-sub-title">Variety of events</h5>
             <h2 class="section__content-title">
-              Play and enjoy our club for free
+              Play and enjoy our events hosted by managers
             </h2>
             <p class="section__content-text">
-              We offer a lot of courses of varying difficulty and beautiful
-              scenery that golfers of all skill levels can enjoy. You will
-              learn golf from professionals with our competent and experienced
-              staff. You will have a great fun with our magnificent
-              illuminated field.
+              We offer variety of events hosted by turf managers and can book instantly
             </p>
             <div class="section__content-inner">
               <ul>
                 <li>
-                  <i class="golftio-pin-checked"></i>300+ Golf Competitions
+                  <i class="golftio-pin-checked"></i>300+ sports Competitions
                 </li>
-                <li><i class="golftio-pin-checked"></i>Proficient on Golf</li>
+                <li><i class="golftio-pin-checked"></i>variety of games</li>
                 <li>
                   <i class="golftio-pin-checked"></i>Amateur Championships
                 </li>
                 <li><i class="golftio-pin-checked"></i>Individual Support</li>
               </ul>
-            </div>
+            </div><!--
             <div class="section__content-cta">
               <a href="join-club.html" class="cmn-button">Join Our Club</a>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
@@ -162,7 +153,7 @@
   </section>
   <!-- ==== / club section end ==== -->
 
-  <!-- ==== team section start ==== -->
+  <!-- ==== team section start ==== --><!--
   <section class="section team wow fadeInUp" data-wow-duration="0.4s">
     <div class="container">
       <div class="row justify-content-center">
@@ -376,7 +367,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section>-->
   <!-- ==== / team section end ==== -->
 
   <!-- ==== counter section start ==== -->
@@ -407,7 +398,7 @@
                 <span class="odometer" data-odometer-final="70"></span>
                 <span>+</span>
               </h2>
-              <p class="primary-text">Professional Trainer</p>
+              <p class="primary-text">Turf playgrounds</p>
             </div>
           </div>
         </div>
@@ -421,7 +412,7 @@
                 <span class="odometer" data-odometer-final="50"></span>
                 <span>+</span>
               </h2>
-              <p class="primary-text">Award Winning</p>
+              <p class="primary-text">hosted events</p>
             </div>
           </div>
         </div>
@@ -435,7 +426,7 @@
                 <span class="odometer" data-odometer-final="60"></span>
                 <span>+</span>
               </h2>
-              <p class="primary-text">Available Field</p>
+              <p class="primary-text">customer supports</p>
             </div>
           </div>
         </div>
@@ -444,7 +435,7 @@
   </section>
   <!-- ==== / counter section end ==== -->
 
-  <!-- ==== testimonial section start ==== -->
+  <!-- ==== testimonial section start ==== --><!--
   <section class="section testimonial wow fadeInUp" data-wow-duration="0.4s">
     <div class="container">
       <div class="row justify-content-center">
@@ -624,10 +615,10 @@
         </div>
       </div>
     </div>
-  </section>
+  </section>-->
   <!-- ==== / testimonial section end ==== -->
 
-  <!-- ==== join club section start ==== -->
+  <!-- ==== join club section start ==== --><!--
   <section class="join--tertiary bg-img" data-background="{% static 'turfuser/images/join-bg-three.png' %}">
     <div class="container">
       <div class="row">
@@ -663,10 +654,10 @@
         </div>
       </div>
     </div>
-  </section>
+  </section>-->
   <!-- ==== / join club section end ==== -->
 
-  <!-- ==== sponsor section start ==== -->
+  <!-- ==== sponsor section start ==== --><!--
   <div class="sponsor wow fadeInUp" data-wow-duration="0.4s">
     <div class="container">
       <div class="row">
@@ -718,7 +709,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
   <!-- ==== / sponsor section end ==== -->
 
 {% endblock %}
