@@ -10,5 +10,6 @@ urlpatterns = [
     path('view-manager',views.view_manager,name="view_manager"),
     path('view-turf',views.view_turf,name="view_turf"),
     path('delete-manager/<int:id>',views.delete_manager,name="delete_manager"),
-    path('bookings',views.bookings,name="bookings")
+    path('bookings',views.bookings,name="bookings"),
+    path('enquiries',views.enquiries,name="enquiries")
 ]

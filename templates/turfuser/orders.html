@@ -11,7 +11,7 @@
     <div class="row align-items-center">
       <div class="col-md-6">
         <div class="banner--inner__content">
-          <h2>Event Booking</h2>
+          <h2>Event Bookings</h2>
         </div>
       </div>
       <div class="col-md-6">
@@ -19,9 +19,8 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="{% url 'turfuser:index' %}">Home</a></li>
-              <li class="breadcrumb-item"><a href="{% url 'turfuser:events' %}">Events</a></li>
               <li class="breadcrumb-item active" aria-current="page">
-                Events Booking
+                My Bookings
               </li>
             </ol>
           </nav>
@@ -32,9 +31,15 @@
 </section>
 <!-- ==== / banner end ==== -->
 
+
+
 <!-- ==== cart start ==== -->
-<div class="section cart">
+<div class="section cart" style="padding-top: 40px !important;">
+
   <div class="container">
+    <div style="text-align: center; padding-bottom: 30px;">
+        <h6><a href="{% url 'turfuser:turf_orders' %}">Switch to Turf bookings >>></a></h6>
+    </div>
     <div class="row">
       <div class="col-12">
         <div class="cart__wrapper wow fadeInUp" data-wow-duration="0.4s">
@@ -43,41 +48,46 @@
               <thead>
                 <tr>
                   <th>Turf</th>
-                  <th>Event Name</th>
+                  <th>Event</th>
                   <th>Date</th>
-                  <th>Time</th>
-                  <th>Entry Fee</th>
+                  <th>Time  </th>
+                  <th>Amount</th>
+                  <th>Contact</th>
+                  <th>Remove</th>
                 </tr>
               </thead>
+              {% for events in events %}
               <tbody>
                 <tr class="cart-item">
                   <td class="cart-item-info">
-                    <img src="{{event.event_image.url}}" alt="Image">
-                    <span class="secondary-text">{{event.turf}}</span>
+                    <img src="{{events.event.event_image.url}}" alt="Image">
+                    <span class="secondary-text">{{events.event.turf}}</span>
                   </td>
                   <td class="cart-item-price">
-                    <span class="base-price">{{event.event_title}}</span>
+                    <span class="base-price">{{events.event.event_title}}</span>
                   </td>
                   <td class="cart-item-price">
-                    <span class="base-price">{{event.date}}</span>
+                    <span class="base-price">{{events.event.date}}</span>
                   </td>
                   <td class="cart-item-price">
-                    <span class="base-price">{{event.time}}</span>
+                    <span class="base-price">{{events.event.time}}</span>
                   </td>
                   <td class="cart-item-price">
-                    $<span class="base-price">{{event.entry_fee}}</span>
+                    $<span class="base-price">{{events.event.entry_fee}}</span>
+                  </td>
+                  <td class="cart-item-price">
+                    <span class="base-price">{{events.manager.phone}}</span>
+                  </td>
+                  <td class="cart-item-remove">
+                    <a href="{% url 'turfuser:remove_event' events.id %}">
+                      <i class="fa-solid fa-xmark"></i>
+                    </a>
                   </td>
 
                 </tr>
               </tbody>
+              {% endfor %}
             </table>
-          </div>
-          <div class="cart__wrapper-footer">
-            {% if booked %}
-            <a class="cmn-button1 cmn-button1--secondary">Booked</a>
-            {% else %}
-            <button  onclick="book(event.target.id)" id="{{ event.id }}" class="cmn-button">Book</button>
-            {% endif %}
           </div>
         </div>
       </div>
@@ -87,27 +97,5 @@
 <!-- ==== / cart end ==== -->
 
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-<script>
-  function book(id) {
-    swal("Thank You..!", {
-      icon: "success",
-    }).then((willDelete) => {
-      if (willDelete) {
-        swal("Requested successfully..!", {
-          icon: "success",
-        });
-        setTimeout(function () {
-          window.location.href = "/turfuser/event_book/" + id;
-        }, 1000);
-      } else {
-        swal("Cancelled!");
-      }
-    });
-  }
-
-
-</script>
 
 {% endblock %}

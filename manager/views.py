@@ -9,10 +9,14 @@ from turfuser.models import BookDate
 def index(request):
     manager_obj = TurfManager.objects.get(user=request.user)
     bookings = TimeSlot.objects.filter(manager=manager_obj,status=1).all()
+    booked_events = EventBook.objects.filter(manager=manager_obj).count()
+    booked_turfs = TimeSlot.objects.filter(manager=manager_obj,status=1).count()
     print(manager_obj)
     print(bookings)
     context = {
-        'bookings' : bookings
+        'bookings' : bookings,
+        'events_count' : booked_events,
+        'turfs_count' : booked_turfs
     }
     return render(request,'manager/index.html',context)
 

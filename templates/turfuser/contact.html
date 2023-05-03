@@ -103,7 +103,8 @@
       <div class="row justify-content-center">
         <div class="col-xl-8">
           <div class="contact-form__inner">
-            <form action="#" method="post">
+            <form method="POST">
+              {% csrf_token %}
               <div class="input-group">
                 <div class="input-single">
                   <label for="contactFirstName">First name</label>

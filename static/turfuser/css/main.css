@@ -1918,8 +1918,8 @@ i {
 .banner--secondary {
   padding: 266px 0px 240px;
   background-color: #ffffff;
-  background-image: -webkit-gradient(linear, left top, right top, from(#fdfffa), to(rgba(255, 255, 255, 0))), url("../images/banner/banner-two.png");
-  background-image: linear-gradient(90deg, #fdfffa 0%, rgba(255, 255, 255, 0) 100%), url("../images/banner/banner-two.png");
+  background-image: -webkit-gradient(linear, left top, right top, from(#fdfffa), to(rgba(255, 255, 255, 0))), url("../images/turfit-banner.jpg");
+  background-image: linear-gradient(90deg, #fdfffa 0%, rgba(255, 255, 255, 0) 100%), url("../images/turfit-banner.jpg");
   background-repeat: no-repeat;
   background-position: left top, right top;
   background-size: 100%, auto 100%;

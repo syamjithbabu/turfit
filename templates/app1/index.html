@@ -19,9 +19,9 @@
                                         <i class="fa fa-building"></i>
                                     </span>
                                     <div class="dash-count">
-                                        <div class="dash-title">All Turfs</div>
+                                        <div class="dash-title"><a href="{% url 'main_admin:view_turf' %}">All Turfs</a></div>
                                         <div class="dash-counts">
-                                            <p>{{site_count}}</p>
+                                            <p>{{all_turfs}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -36,9 +36,9 @@
                                         <i class="fas fa-file-alt"></i>
                                     </span>
                                     <div class="dash-count">
-                                        <div class="dash-title">Managers</div>
+                                        <div class="dash-title"><a href="{% url 'main_admin:view_manager' %}">Managers</a></div>
                                         <div class="dash-counts">
-                                            <p>{{invoice_count}}</p>
+                                            <p>{{all_managers}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -54,9 +54,9 @@
                                     </span>
                                     <div class="dash-count">
                                         
-                                        <div class="dash-title">Bookings</div>
+                                        <div class="dash-title"><a href="{% url 'main_admin:enquiries' %}">Enquiries</a></div>
                                         <div class="dash-counts">
-                                            <p>{{estimate_count}}</p>
+                                            <p>{{all_enquiries}}</p>
                                         </div>
                                     </div>
                                 </div>

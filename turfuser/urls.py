@@ -14,5 +14,9 @@ urlpatterns = [
     path('contact',views.contact,name="contact"),
     path('search/',views.search, name='search'),
     path('event-details/<int:id>',views.event_details,name="event_details"),
-    # path('event_book/<int:id>',views.event_booking,name="event_booking")
+    path('event_book/<int:id>',views.event_booking,name="event_booking"),
+    path('orders',views.orders,name="orders"),
+    path('remove-event/<int:id>',views.remove_event,name="remove_event"),
+    path('turf-orders',views.turf_orders,name="turf_orders"),
+    path('remove-turf/<int:id>',views.remove_turf,name="remove_turf")
 ]

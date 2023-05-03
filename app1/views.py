@@ -5,13 +5,20 @@ from website.models import User,TurfManager
 from manager.models import Turf,TimeSlot
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
+from turfuser.models import Contact
 
 # Create your views here.
 
 def home(request):
     bookings = TimeSlot.objects.filter(status=1).all()
+    all_turfs = Turf.objects.filter().count()
+    all_managers = TurfManager.objects.filter().count()
+    all_enquiries = Contact.objects.filter().count()
     context = {
-        'bookings' : bookings
+        'bookings' : bookings,
+        'all_turfs' : all_turfs,
+        'all_managers' : all_managers,
+        'all_enquiries' : all_enquiries
     }
     return render(request,'app1/index.html',context)
 
@@ -63,3 +70,10 @@ def bookings(request):
         'bookings' : bookings
     }
     return render(request,'app1/bookings.html',context)
+
+def enquiries(request):
+    enquiries = Contact.objects.filter().all()
+    context = {
+        'enquiries' : enquiries
+    }
+    return render(request,'app1/enquiries.html',context)
