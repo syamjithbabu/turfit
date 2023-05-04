@@ -61,7 +61,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Date</label>
-                                        <input type="date" required class="form-control" id=""
+                                        <input type="date" required class="form-control min-date" id=""
                                             name="date">
                                         <p id="pphone" style="color: red;"></p>
                                 </div>
@@ -264,6 +264,7 @@
         })
     })
 
+    $('.min-date').attr("min",new Date().toISOString().split('T')[0]);
 
 
 </script>
