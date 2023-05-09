@@ -66,7 +66,6 @@ def turf_details(request,id):
     turf = Turf.objects.get(id=id)
     time_slots = TimeSlot.objects.filter(turf=turf)
     games = Category.objects.filter(turf=turf)
-    dates = BookDate.objects.filter().all()
     context = {
         'turf': turf,
         'slot' : time_slots,
@@ -77,12 +76,19 @@ def turf_details(request,id):
             i.status = 1
         else:
             i.status = 2
+    if request.method == 'POST':
+        turf_name = request.POST.get('turf_name')
+        phone = request.POST.get('phone')
+        address = request.POST.get('place')
+        edit_turf = Turf.objects.filter(id=id).update(turf_name=turf_name,phone=phone,turf_place=address)
+        return redirect('manager:view_turf')
     return render(request,'manager/turf_details.html',context)
 
 def delete_slot(request,id):
     slot = TimeSlot.objects.get(id=id)
+    print(slot)
     slot.delete()
-    return redirect('manager:index')
+    return redirect('manager:view_turf')
 
 def bookings(request):
     manager_obj = TurfManager.objects.get(user=request.user)
@@ -124,7 +130,7 @@ def add_games(request,id):
 def delete_game(request,id):
     game = Category.objects.get(id=id)
     game.delete()
-    return redirect('manager:index')
+    return redirect('manager:view_turf')
 
 def add_event(request):
     manager_obj = TurfManager.objects.get(user=request.user)

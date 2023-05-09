@@ -64,6 +64,7 @@
                                         <th>User Email</th>
                                         <th>User Phone</th>
                                         <th>Message</th>
+                                        <th>Reply</th>
 
                                     </tr>
                                 </thead>
@@ -86,6 +87,8 @@
 
                                             {{enquiries.message}}
                                         </td>
+                                        <td><button><a  href="{% url 'main_admin:reply' enquiries.id %}">Reply</a></button></td>
+                                        
                                         
 
                                     </tr>

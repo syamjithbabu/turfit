@@ -1,4 +1,4 @@
-{% extends 'manager/partials/base.html' %}
+{% extends 'app1/partials/base.html' %}
 {% load static %}
 
 {% block content %}
@@ -9,14 +9,21 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="page-title">Bookings</h3>
+                    <h3 class="page-title">Event Bookings</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb"><a href=""> Booked</a>
                         </li>
                         <li class="breadcrumb active"> / Details</li>
                     </ul>
                 </div>
-                
+                <div class="col-auto">
+                    <a href="" class="btn btn-primary me-1">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                    <!-- <a class="btn btn-primary filter-btn" href="javascript:void(0);" id="filter_search">
+                        <i class="fas fa-filter"></i>
+                    </a> -->
+                </div>
             </div>
         </div>
 
@@ -56,10 +63,9 @@
 
                                     <tr>
                                         <th>User Name</th>
-                                        <th>Turf Name</th>
                                         <th>Phone</th>
                                         <th>Email</th>
-                                        <th>Slot</th>
+                                        <th>Event</th>
                                         <th>Rate</th>
                                       
 
@@ -71,18 +77,18 @@
                                         <td>
                                             <h2 class="">
 
-                                                <a href="">{{bookings.turf_user}} </a>
+                                                <a href="">{{bookings.user}} </a>
                                             </h2>
                                         </td>
-                                        <td>{{bookings.turf.turf_name}}</td>
-                                        <td>{{bookings.turf_user.phone}}
+                                        <td>{{bookings.user.phone}}
                                         </td>
-                                        <td>{{bookings.turf_user.email}}</td>
-                                        <td>{{bookings.start_time}} - {{bookings.end_time}}</td>
-                                        <td>{{bookings.price}}</td>
+                                        <td>{{bookings.user.email}}</td>
+                                        <td>{{bookings.event}}</td>
+                                        <td>{{bookings.event.entry_fee}}</td>
 
 
 
+                                        
                                       
                                     </tr>
 

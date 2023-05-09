@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from website.forms import LoginForm
 from website.forms import UserRegistration
 from website.models import User,TurfManager
-from manager.models import Turf,TimeSlot
+from manager.models import Turf,TimeSlot,EventBook
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from turfuser.models import Contact
@@ -72,8 +72,27 @@ def bookings(request):
     return render(request,'app1/bookings.html',context)
 
 def enquiries(request):
-    enquiries = Contact.objects.filter().all()
+    enquiries = Contact.objects.filter(reply=True).all()
     context = {
         'enquiries' : enquiries
     }
     return render(request,'app1/enquiries.html',context)
+
+def reply(request,id):
+    user = Contact.objects.get(id=id)
+    context = {
+        'user' : user
+    }
+    if request.method == 'POST':
+        reply = request.POST.get('reply')
+        print(reply)
+        enquiry_reply = Contact.objects.filter(id=id).update(reply=reply)
+        return redirect('main_admin:enquiries')
+    return render(request,'app1/reply.html',context)
+
+def event_bookings(request):
+    event_bookings = EventBook.objects.filter().all()
+    context = {
+        'bookings' : event_bookings
+    }
+    return render(request,'app1/event_bookings.html',context)

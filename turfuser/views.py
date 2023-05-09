@@ -40,7 +40,7 @@ def contact(request):
         email = request.POST.get('contact-email')
         phone = request.POST.get('contact-phone')
         message = request.POST.get('contact-message')
-        contact = Contact.objects.create(first_name=first_name,second_name=second_name,email=email,phone=phone,message=message)
+        contact = Contact.objects.create(first_name=first_name,second_name=second_name,email=email,phone=phone,message=message,reply=True)
         contact.save()
     return render(request,'turfuser/contact.html')
 
@@ -122,5 +122,13 @@ def turf_orders(request):
 def remove_turf(request,id):
     turf = TimeSlot.objects.get(id=id)
     user_obj = TurfUser.objects.get(user=request.user)
-    remove_turf = TimeSlot.objects.filter(turf_user=user_obj,turf=turf.turf).update(status=0)
+    remove_turf = TimeSlot.objects.filter(id=id,turf_user=user_obj,turf=turf.turf).update(status=0)
     return redirect('turfuser:turf_orders')
+
+def replies(request):
+    user_obj = TurfUser.objects.get(user=request.user)
+    contact = Contact.objects.filter(user_obj=user_obj).all()
+    context = {
+        'reply' : contact
+    }
+    return render(request,'turfuser/replies.html',context)

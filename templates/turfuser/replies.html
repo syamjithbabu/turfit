@@ -11,7 +11,7 @@
     <div class="row align-items-center">
       <div class="col-md-6">
         <div class="banner--inner__content">
-          <h2>Turf Bookings</h2>
+          <h2>Replies</h2>
         </div>
       </div>
       <div class="col-md-6">
@@ -20,7 +20,7 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="{% url 'turfuser:index' %}">Home</a></li>
               <li class="breadcrumb-item active" aria-current="page">
-                My Bookings
+                Enquiry Reply
               </li>
             </ol>
           </nav>
@@ -37,9 +37,6 @@
 <div class="section cart" style="padding-top: 40px !important;">
 
   <div class="container">
-    <div style="text-align: center; padding-bottom: 30px;">
-        <h6><a href="{% url 'turfuser:orders' %}">Switch to Event bookings >>></a></h6>
-    </div>
     <div class="row">
       <div class="col-12">
         <div class="cart__wrapper wow fadeInUp" data-wow-duration="0.4s">
@@ -47,38 +44,26 @@
             <table>
               <thead>
                 <tr>
-                  <th>Turf</th>
-                  <th>Date</th>
-                  <th>Time  </th>
-                  <th>Amount</th>
-                  <th>Contact</th>
-                  <th>Remove</th>
+                  <th>Message</th>
+                  <th>Reply</th>
                 </tr>
               </thead>
-              {% for turf in orders %}
+              {% for reply in reply %}
               <tbody>
                 <tr class="cart-item">
-                  <td class="cart-item-info">
-                    <img src="{{turf.turf.turf_image.url}}" alt="Image">
-                    <span class="secondary-text">{{turf.turf.turf_name}}</span>
-                  </td>
                   <td class="cart-item-price">
-                    <span class="base-price">{{turf.date_for_book}}</span>
+                    <span class="base-price">{{reply.message}}</span>
                   </td>
+                  {% if reply.reply == "True" %}
                   <td class="cart-item-price">
-                    <span class="base-price">{{turf.start_time}} - {{turf.end_time}}</span>
+                    <span class="base-price">No reply</span>
                   </td>
+                  {% else %}
                   <td class="cart-item-price">
-                    ₹<span class="base-price">{{turf.price}}</span>
+                    <span class="base-price">{{reply.reply}}</span>
                   </td>
-                  <td class="cart-item-price">
-                    <span class="base-price">{{turf.turf.phone}}</span>
-                  </td>
-                  <td class="cart-item-remove">
-                    <a href="{% url 'turfuser:remove_turf' turf.id %}">
-                      <i class="fa-solid fa-xmark"></i>
-                    </a>
-                  </td>
+                  {% endif %}
+                  
 
                 </tr>
               </tbody>

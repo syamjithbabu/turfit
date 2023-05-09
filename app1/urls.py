@@ -11,5 +11,7 @@ urlpatterns = [
     path('view-turf',views.view_turf,name="view_turf"),
     path('delete-manager/<int:id>',views.delete_manager,name="delete_manager"),
     path('bookings',views.bookings,name="bookings"),
-    path('enquiries',views.enquiries,name="enquiries")
+    path('enquiries',views.enquiries,name="enquiries"),
+    path('reply/<int:id>',views.reply,name="reply"),
+    path('event-bookings',views.event_bookings,name="event_bookings")
 ]
