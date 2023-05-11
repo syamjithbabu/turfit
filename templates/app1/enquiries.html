@@ -65,6 +65,7 @@
                                         <th>User Phone</th>
                                         <th>Message</th>
                                         <th>Reply</th>
+                                        <th>Remove</th>
 
                                     </tr>
                                 </thead>
@@ -88,7 +89,7 @@
                                             {{enquiries.message}}
                                         </td>
                                         <td><button><a  href="{% url 'main_admin:reply' enquiries.id %}">Reply</a></button></td>
-                                        
+                                        <td><button><a  href="{% url 'main_admin:reply' enquiries.id %}">Remove</a></button></td>
                                         
 
                                     </tr>

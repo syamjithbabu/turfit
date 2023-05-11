@@ -72,7 +72,7 @@ def bookings(request):
     return render(request,'app1/bookings.html',context)
 
 def enquiries(request):
-    enquiries = Contact.objects.filter(reply=True).all()
+    enquiries = Contact.objects.filter().all()
     context = {
         'enquiries' : enquiries
     }
@@ -96,3 +96,8 @@ def event_bookings(request):
         'bookings' : event_bookings
     }
     return render(request,'app1/event_bookings.html',context)
+
+def remove_enquiry(request,id):
+
+    return redirect('main_admin:enquiries')
+

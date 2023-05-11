@@ -46,6 +46,7 @@
                 <tr>
                   <th>Message</th>
                   <th>Reply</th>
+                  <th>Remove</th>
                 </tr>
               </thead>
               {% for reply in reply %}
@@ -63,6 +64,9 @@
                     <span class="base-price">{{reply.reply}}</span>
                   </td>
                   {% endif %}
+                  <td>
+                    <button> <a href="{% url 'turfuser:remove_reply' reply.id %}">Remove</a> </button>
+                  </td>
                   
 
                 </tr>

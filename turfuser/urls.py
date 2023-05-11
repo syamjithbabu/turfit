@@ -19,5 +19,6 @@ urlpatterns = [
     path('remove-event/<int:id>',views.remove_event,name="remove_event"),
     path('turf-orders',views.turf_orders,name="turf_orders"),
     path('remove-turf/<int:id>',views.remove_turf,name="remove_turf"),
-    path('replies',views.replies,name="replies")
+    path('replies',views.replies,name="replies"),
+    path('remove-reply/<int:id>',views.remove_reply,name="remove_reply")
 ]

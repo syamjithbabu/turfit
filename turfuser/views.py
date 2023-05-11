@@ -24,7 +24,7 @@ def events(request):
     context = {
         'events' : events
     }
-    return render(request,'turfuser/gallery.html',context)
+    return render(request,'turfuser/events.html',context)
 
 def turfs(request):
     turfs = Turf.objects.filter().all()
@@ -34,13 +34,14 @@ def turfs(request):
     return render(request,'turfuser/turfs.html',context)
 
 def contact(request):
+    user_obj = TurfUser.objects.get(user = request.user)
     if request.method == 'POST':
         first_name = request.POST.get('contact-first-name')
         second_name = request.POST.get('contact-last-name')
         email = request.POST.get('contact-email')
         phone = request.POST.get('contact-phone')
         message = request.POST.get('contact-message')
-        contact = Contact.objects.create(first_name=first_name,second_name=second_name,email=email,phone=phone,message=message,reply=True)
+        contact = Contact.objects.create(user_obj = user_obj,first_name=first_name,second_name=second_name,email=email,phone=phone,message=message,reply=True)
         contact.save()
     return render(request,'turfuser/contact.html')
 
@@ -132,3 +133,8 @@ def replies(request):
         'reply' : contact
     }
     return render(request,'turfuser/replies.html',context)
+
+def remove_reply(request,id):
+    remove_reply = Contact.objects.get(id=id)
+    remove_reply.delete()
+    return redirect('turfuser:replies')
