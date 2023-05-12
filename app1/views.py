@@ -98,6 +98,7 @@ def event_bookings(request):
     return render(request,'app1/event_bookings.html',context)
 
 def remove_enquiry(request,id):
-
+    remove_enquiry = Contact.objects.get(id=id)
+    remove_enquiry.delete()
     return redirect('main_admin:enquiries')
 

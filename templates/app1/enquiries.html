@@ -88,8 +88,12 @@
 
                                             {{enquiries.message}}
                                         </td>
+                                        {% if enquiries.reply == 'True' %}
                                         <td><button><a  href="{% url 'main_admin:reply' enquiries.id %}">Reply</a></button></td>
-                                        <td><button><a  href="{% url 'main_admin:reply' enquiries.id %}">Remove</a></button></td>
+                                        {% else %}
+                                        <td><button>Replied</button></td>
+                                        {% endif %}
+                                        <td><button><a  href="{% url 'main_admin:remove_enquiry' enquiries.id %}">Remove</a></button></td>
                                         
 
                                     </tr>

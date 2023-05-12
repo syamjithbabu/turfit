@@ -13,5 +13,6 @@ urlpatterns = [
     path('bookings',views.bookings,name="bookings"),
     path('enquiries',views.enquiries,name="enquiries"),
     path('reply/<int:id>',views.reply,name="reply"),
-    path('event-bookings',views.event_bookings,name="event_bookings")
+    path('event-bookings',views.event_bookings,name="event_bookings"),
+    path('remove-enquiry/<int:id>',views.remove_enquiry,name="remove_enquiry")
 ]
